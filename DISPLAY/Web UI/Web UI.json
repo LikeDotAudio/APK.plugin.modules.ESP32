@@ -1,0 +1,80 @@
+{
+  "Web_UI": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🪟 The browser as the node's screen — the same data, without the hardware."
+    },
+    "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/webpage.cpp",
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Web UI — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🪟 Web UI"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "The browser as the node's screen — the same data, without the hardware."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Web_UI_iface",
+            "lbl": "Served from LittleFS"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Web_UI_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/display/web_ui"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Web UI — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/display/web_ui",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "The browser as the node's screen — the same data, without the hardware.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "PWM_LEDC": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🌊 The general-purpose pulse engine behind dimming, servos, and motor speed."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "PWM LEDC — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🌊 PWM LEDC"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "The general-purpose pulse engine behind dimming, servos, and motor speed."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "PWM_LEDC_iface",
+            "lbl": "16 channels, configurable bit depth"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "PWM_LEDC_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/buses/pwm_ledc"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "PWM LEDC — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/buses/pwm_ledc",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "The general-purpose pulse engine behind dimming, servos, and motor speed.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

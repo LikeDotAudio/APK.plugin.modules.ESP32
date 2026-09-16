@@ -1,0 +1,80 @@
+{
+  "Crash_Dump": {
+    "type": "OcaBin",
+    "description": {
+      "En": "💥 Panic handler that stores the backtrace to flash and publishes it after the next boot."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Crash Dump — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "💥 Crash Dump"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Panic handler that stores the backtrace to flash and publishes it after the next boot."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Crash_Dump_iface",
+            "lbl": "Core dump partition"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Crash_Dump_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/diagnostics/crash_dump"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Crash Dump — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/diagnostics/crash_dump",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Panic handler that stores the backtrace to flash and publishes it after the next boot.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "SD_Card": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🗃️ Bulk local capture when the network is down or the data is too big to publish."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "SD Card — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🗃️ SD Card"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Bulk local capture when the network is down or the data is too big to publish."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "SD_Card_iface",
+            "lbl": "SPI / SDMMC"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "SD_Card_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/storage/sd_card"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "SD Card — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/storage/sd_card",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Bulk local capture when the network is down or the data is too big to publish.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

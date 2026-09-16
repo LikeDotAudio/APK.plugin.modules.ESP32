@@ -1,0 +1,80 @@
+{
+  "DIP_Switches": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🎚️ Cold-boot configuration you can set with a fingernail — node ID, mode, and address without a serial cable."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "DIP Switches — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🎚️ DIP Switches"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Cold-boot configuration you can set with a fingernail — node ID, mode, and address without a serial cable."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "DIP_Switches_iface",
+            "lbl": "Digital in via expander"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "DIP_Switches_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/inputs/dip_switches"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "DIP Switches — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/inputs/dip_switches",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Cold-boot configuration you can set with a fingernail — node ID, mode, and address without a serial cable.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

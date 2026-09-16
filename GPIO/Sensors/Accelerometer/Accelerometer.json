@@ -1,0 +1,80 @@
+{
+  "Accelerometer": {
+    "type": "OcaBin",
+    "description": {
+      "En": "📉 Vibration, tilt, and impact — catch a fan bearing going bad before it takes the amp with it."
+    },
+    "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/sensors/sensor_accelerometer.cpp",
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Accelerometer — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "📉 Accelerometer"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Vibration, tilt, and impact — catch a fan bearing going bad before it takes the amp with it."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Accelerometer_iface",
+            "lbl": "I²C MPU6050"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Accelerometer_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/sensors/accelerometer"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Accelerometer — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/sensors/accelerometer",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Vibration, tilt, and impact — catch a fan bearing going bad before it takes the amp with it.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

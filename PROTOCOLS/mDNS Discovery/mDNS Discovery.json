@@ -1,0 +1,80 @@
+{
+  "mDNS_Discovery": {
+    "type": "OcaBin",
+    "implements": null,
+    "description": {
+      "En": "🔍 Advertises `_apkaudio._tcp` so APK.audio's scanner finds the node with no config at all."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "mDNS Discovery — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🔍 mDNS Discovery"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Advertises `_apkaudio._tcp` so APK.audio's scanner finds the node with no config at all."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "mDNS_Discovery_iface",
+            "lbl": "mDNS/Bonjour, matches APK.audio discovery frames"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "mDNS_Discovery_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/protocols/mdns_discovery"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "mDNS Discovery — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/protocols/mdns_discovery",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Advertises `_apkaudio._tcp` so APK.audio's scanner finds the node with no config at all.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "MOTORS": {
+    "type": "OcaBin",
+    "description": {
+      "En": "⚙️ Anything that turns, slides, or shoves. Motion is the loudest kind of output."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "MOTORS — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "⚙️ MOTORS"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Anything that turns, slides, or shoves. Motion is the loudest kind of output."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "MOTORS_iface",
+            "lbl": "H-bridge / driver ICs, separate motor supply rail"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "MOTORS_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "MOTORS — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Anything that turns, slides, or shoves. Motion is the loudest kind of output.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

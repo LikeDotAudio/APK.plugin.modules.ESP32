@@ -1,0 +1,149 @@
+{
+  "I2S_Codec_In": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🎙️ Line and mic capture through an external codec; the entry point for real measurement."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "I2S Codec In — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🎙️ I2S Codec In"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Line and mic capture through an external codec; the entry point for real measurement."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "I2S_Codec_In_iface",
+            "lbl": "I²S RX, ES8388 / PCM1808"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "I2S_Codec_In_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/audio/i2s_codec_in"
+          }
+        }
+      },
+      "Control": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "I2S Codec In — control surface"
+        },
+        "layout_columns": 3,
+        "fields": {
+          "enable": {
+            "type": "_SmartToggle",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/audio/i2s_codec_in/enable",
+            "label": {
+              "En": "I2S Codec In Enable"
+            },
+            "geometry": {
+              "width": 90,
+              "height": 45,
+              "font": 14
+            },
+            "interaction": {
+              "options": {
+                "ON": {
+                  "label": {
+                    "active": {
+                      "text": {
+                        "En": "ENABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  },
+                  "selected": false
+                },
+                "OFF": {
+                  "label": {
+                    "inactive": {
+                      "text": {
+                        "En": "DISABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  }
+                }
+              },
+              "is_sticky": true
+            }
+          },
+          "invoke": {
+            "type": "_GuiActuator",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/audio/i2s_codec_in/command",
+            "label": {
+              "active": {
+                "text": {
+                  "En": "WORKING…"
+                }
+              },
+              "inactive": {
+                "text": {
+                  "En": "RUN I2S CODEC IN"
+                }
+              }
+            },
+            "layout": {
+              "width": 200,
+              "height": 45
+            }
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "I2S Codec In — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/audio/i2s_codec_in",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Line and mic capture through an external codec; the entry point for real measurement.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

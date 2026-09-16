@@ -1,0 +1,80 @@
+{
+  "LED": {
+    "type": "OcaBin",
+    "description": {
+      "En": "💡 Light as a status protocol — if a human can see it from across the rack, it is a debugging tool."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "LED — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "💡 LED"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Light as a status protocol — if a human can see it from across the rack, it is a debugging tool."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "LED_iface",
+            "lbl": "LEDC PWM channels / RMT"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "LED_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/led"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "LED — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/led",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Light as a status protocol — if a human can see it from across the rack, it is a debugging tool.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

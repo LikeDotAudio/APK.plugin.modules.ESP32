@@ -1,0 +1,80 @@
+{
+  "Scheduler": {
+    "type": "OcaBin",
+    "description": {
+      "En": "📅 On-node cron: sample this every 5 s, publish that on the minute, run self-test at 03:00."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Scheduler — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "📅 Scheduler"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "On-node cron: sample this every 5 s, publish that on the minute, run self-test at 03:00."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Scheduler_iface",
+            "lbl": "Tick-based scheduler"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Scheduler_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/time/scheduler"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Scheduler — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/time/scheduler",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "On-node cron: sample this every 5 s, publish that on the minute, run self-test at 03:00.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    },
+    "implements": null
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "Link_Watchdog": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🐕 Detects a half-open connection — associated but useless — and forces a clean reconnect."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Link Watchdog — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🐕 Link Watchdog"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Detects a half-open connection — associated but useless — and forces a clean reconnect."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Link_Watchdog_iface",
+            "lbl": "Ping + broker liveness"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Link_Watchdog_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/network/link_watchdog"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Link Watchdog — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/network/link_watchdog",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Detects a half-open connection — associated but useless — and forces a clean reconnect.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

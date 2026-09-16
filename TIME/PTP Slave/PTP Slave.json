@@ -1,0 +1,80 @@
+{
+  "PTP_Slave": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🎯 Sub-microsecond alignment to the plant's PTP domain — the same clock AES67 and ST 2110 ride on."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "PTP Slave — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🎯 PTP Slave"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Sub-microsecond alignment to the plant's PTP domain — the same clock AES67 and ST 2110 ride on."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "PTP_Slave_iface",
+            "lbl": "IEEE 1588, software timestamping"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "PTP_Slave_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/time/ptp_slave"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "PTP Slave — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/time/ptp_slave",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Sub-microsecond alignment to the plant's PTP domain — the same clock AES67 and ST 2110 ride on.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    },
+    "implements": null
+  }
+}

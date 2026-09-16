@@ -1,0 +1,79 @@
+{
+  "POWER": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🔌 Energy budget and graceful behaviour when it runs out."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "POWER — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🔌 POWER"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Energy budget and graceful behaviour when it runs out."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "POWER_iface",
+            "lbl": "Rail monitoring"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "POWER_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/power"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "POWER — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/power",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Energy budget and graceful behaviour when it runs out.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

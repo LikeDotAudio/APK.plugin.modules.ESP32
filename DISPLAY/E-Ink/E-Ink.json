@@ -1,0 +1,80 @@
+{
+  "E_Ink": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🏷️ Zero-power labels — rack tags that stay readable with the node unplugged."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "E-Ink — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🏷️ E-Ink"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Zero-power labels — rack tags that stay readable with the node unplugged."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "E_Ink_iface",
+            "lbl": "SPI e-paper"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "E_Ink_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/display/e_ink"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "E-Ink — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/display/e_ink",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Zero-power labels — rack tags that stay readable with the node unplugged.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

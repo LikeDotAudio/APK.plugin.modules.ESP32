@@ -1,0 +1,79 @@
+{
+  "TIME": {
+    "type": "OcaBin",
+    "description": {
+      "En": "⏰ Timestamps that survive comparison across nodes. Without shared time, telemetry is anecdote."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "TIME — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "⏰ TIME"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Timestamps that survive comparison across nodes. Without shared time, telemetry is anecdote."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "TIME_iface",
+            "lbl": "SNTP / PTP / RTC"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "TIME_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/time"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "TIME — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/time",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Timestamps that survive comparison across nodes. Without shared time, telemetry is anecdote.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

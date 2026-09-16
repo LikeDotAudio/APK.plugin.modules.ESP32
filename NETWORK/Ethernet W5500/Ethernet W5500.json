@@ -1,0 +1,80 @@
+{
+  "Ethernet_W5500": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🔌 Wired transport for anything that must not depend on RF — SPI Ethernet or native EMAC."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Ethernet W5500 — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🔌 Ethernet W5500"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Wired transport for anything that must not depend on RF — SPI Ethernet or native EMAC."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Ethernet_W5500_iface",
+            "lbl": "SPI W5500 / RMII LAN8720"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Ethernet_W5500_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/network/ethernet_w5500"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Ethernet W5500 — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/network/ethernet_w5500",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Wired transport for anything that must not depend on RF — SPI Ethernet or native EMAC.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "Secure_Boot": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🛡️ Only signed firmware runs, so a flashed image cannot be swapped in the field."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Secure Boot — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🛡️ Secure Boot"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Only signed firmware runs, so a flashed image cannot be swapped in the field."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Secure_Boot_iface",
+            "lbl": "eFuse-backed"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Secure_Boot_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/security/secure_boot"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Secure Boot — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/security/secure_boot",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Only signed firmware runs, so a flashed image cannot be swapped in the field.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

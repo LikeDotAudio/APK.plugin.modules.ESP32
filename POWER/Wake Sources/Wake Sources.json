@@ -1,0 +1,80 @@
+{
+  "Wake_Sources": {
+    "type": "OcaBin",
+    "description": {
+      "En": "⏲️ Timer, GPIO, touch, and ULP-triggered wake — sleep until something is actually worth reporting."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Wake Sources — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "⏲️ Wake Sources"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Timer, GPIO, touch, and ULP-triggered wake — sleep until something is actually worth reporting."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Wake_Sources_iface",
+            "lbl": "EXT0/EXT1/ULP"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Wake_Sources_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/power/wake_sources"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Wake Sources — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/power/wake_sources",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Timer, GPIO, touch, and ULP-triggered wake — sleep until something is actually worth reporting.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

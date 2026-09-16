@@ -1,0 +1,80 @@
+{
+  "Modbus_TCP": {
+    "type": "OcaBin",
+    "implements": null,
+    "description": {
+      "En": "🏭 Building management and industrial gear integration; registers mapped to node state."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Modbus TCP — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🏭 Modbus TCP"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Building management and industrial gear integration; registers mapped to node state."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Modbus_TCP_iface",
+            "lbl": "TCP/502"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Modbus_TCP_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/protocols/modbus_tcp"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Modbus TCP — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/protocols/modbus_tcp",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Building management and industrial gear integration; registers mapped to node state.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

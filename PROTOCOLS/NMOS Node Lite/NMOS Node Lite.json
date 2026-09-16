@@ -1,0 +1,80 @@
+{
+  "NMOS_Node_Lite": {
+    "type": "OcaBin",
+    "implements": null,
+    "description": {
+      "En": "🎬 A minimal IS-04 node registration so broadcast controllers see this thing as a first-class device."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "NMOS Node Lite — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🎬 NMOS Node Lite"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "A minimal IS-04 node registration so broadcast controllers see this thing as a first-class device."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "NMOS_Node_Lite_iface",
+            "lbl": "HTTP registry POST"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "NMOS_Node_Lite_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/protocols/nmos_node_lite"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "NMOS Node Lite — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/protocols/nmos_node_lite",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "A minimal IS-04 node registration so broadcast controllers see this thing as a first-class device.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

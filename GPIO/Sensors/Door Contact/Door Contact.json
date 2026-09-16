@@ -1,0 +1,80 @@
+{
+  "Door_Contact": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🚪 Reed switches on racks, cabinets, and booths. Physical access as a logged event."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Door Contact — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🚪 Door Contact"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Reed switches on racks, cabinets, and booths. Physical access as a logged event."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Door_Contact_iface",
+            "lbl": "Digital input, pull-up"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Door_Contact_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/sensors/door_contact"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Door Contact — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/sensors/door_contact",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Reed switches on racks, cabinets, and booths. Physical access as a logged event.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

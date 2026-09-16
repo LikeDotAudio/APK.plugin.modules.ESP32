@@ -1,0 +1,80 @@
+{
+  "HTTP_REST": {
+    "type": "OcaBin",
+    "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/webpage.cpp",
+    "description": {
+      "En": "🧾 A small JSON API for scripted control and for the PI host to poll when MQTT is down."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "HTTP REST — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🧾 HTTP REST"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "A small JSON API for scripted control and for the PI host to poll when MQTT is down."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "HTTP_REST_iface",
+            "lbl": "GET/POST /api/*"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "HTTP_REST_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/protocols/http_rest"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "HTTP REST — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/protocols/http_rest",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "A small JSON API for scripted control and for the PI host to poll when MQTT is down.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

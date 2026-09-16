@@ -1,0 +1,80 @@
+{
+  "Power_On_Self_Test": {
+    "type": "OcaBin",
+    "description": {
+      "En": "✅ Probe every bus and peripheral at boot and publish a pass/fail map. Commissioning without a multimeter."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Power On Self Test — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "✅ Power On Self Test"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Probe every bus and peripheral at boot and publish a pass/fail map. Commissioning without a multimeter."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Power_On_Self_Test_iface",
+            "lbl": "I²C scan + peripheral probe"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Power_On_Self_Test_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/diagnostics/power_on_self_test"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Power On Self Test — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/diagnostics/power_on_self_test",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Probe every bus and peripheral at boot and publish a pass/fail map. Commissioning without a multimeter.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

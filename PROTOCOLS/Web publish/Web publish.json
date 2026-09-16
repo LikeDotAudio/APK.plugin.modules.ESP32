@@ -1,0 +1,80 @@
+{
+  "Web_publish": {
+    "type": "OcaBin",
+    "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/webpage.cpp",
+    "description": {
+      "En": "🕸️ The node's own embedded HTTP page: live values, config form, and a reboot button. Zero install, works from a phone."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Web publish — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🕸️ Web publish"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "The node's own embedded HTTP page: live values, config form, and a reboot button. Zero install, works from a phone."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Web_publish_iface",
+            "lbl": "HTTP/80, see include/webpage.h"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Web_publish_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/protocols/web_publish"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Web publish — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/protocols/web_publish",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "The node's own embedded HTTP page: live values, config form, and a reboot button. Zero install, works from a phone.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

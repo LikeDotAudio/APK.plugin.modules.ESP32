@@ -1,0 +1,172 @@
+{
+  "ACTUATORS": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🦾 Linear actuators and push-pull solenoid mechanics — doors, dampers, mutes, curtain drops."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "ACTUATORS — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🦾 ACTUATORS"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Linear actuators and push-pull solenoid mechanics — doors, dampers, mutes, curtain drops."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "ACTUATORS_iface",
+            "lbl": "L298 H-bridge, limit switch feedback"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "ACTUATORS_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors/actuators"
+          }
+        }
+      },
+      "Control": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "ACTUATORS — control surface"
+        },
+        "layout_columns": 3,
+        "fields": {
+          "enable": {
+            "type": "_SmartToggle",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors/actuators/enable",
+            "label": {
+              "En": "ACTUATORS Enable"
+            },
+            "geometry": {
+              "width": 90,
+              "height": 45,
+              "font": 14
+            },
+            "interaction": {
+              "options": {
+                "ON": {
+                  "label": {
+                    "active": {
+                      "text": {
+                        "En": "ENABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  },
+                  "selected": false
+                },
+                "OFF": {
+                  "label": {
+                    "inactive": {
+                      "text": {
+                        "En": "DISABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  }
+                }
+              },
+              "is_sticky": true
+            }
+          },
+          "invoke": {
+            "type": "_GuiActuator",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors/actuators/command",
+            "label": {
+              "active": {
+                "text": {
+                  "En": "WORKING…"
+                }
+              },
+              "inactive": {
+                "text": {
+                  "En": "RUN ACTUATORS"
+                }
+              }
+            },
+            "layout": {
+              "width": 200,
+              "height": 45
+            }
+          },
+          "setpoint": {
+            "type": "_SmartKnob",
+            "label": {
+              "En": "ACTUATORS Setpoint"
+            },
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors/actuators/setpoint",
+            "geometry": {
+              "width": 100,
+              "height": 100
+            },
+            "domain": {
+              "primary": {
+                "min": 0.0,
+                "max": 100.0,
+                "unit": "%"
+              }
+            },
+            "cosmetics": {
+              "style_flags": {
+                "show_grid": true
+              }
+            }
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "ACTUATORS — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors/actuators",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Linear actuators and push-pull solenoid mechanics — doors, dampers, mutes, curtain drops.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

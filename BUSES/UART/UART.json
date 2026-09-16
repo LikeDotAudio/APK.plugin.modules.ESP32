@@ -1,0 +1,80 @@
+{
+  "UART": {
+    "type": "OcaBin",
+    "description": {
+      "En": "📜 Plain serial to legacy gear, GPS heads, and the console itself."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "UART — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "📜 UART"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Plain serial to legacy gear, GPS heads, and the console itself."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "UART_iface",
+            "lbl": "3 hardware UARTs"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "UART_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/buses/uart"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "UART — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/buses/uart",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Plain serial to legacy gear, GPS heads, and the console itself.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

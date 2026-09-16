@@ -1,0 +1,80 @@
+{
+  "NVS_Key_Value": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🗄️ Credentials, calibration constants, and node identity in wear-levelled flash."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "NVS Key Value — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🗄️ NVS Key Value"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Credentials, calibration constants, and node identity in wear-levelled flash."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "NVS_Key_Value_iface",
+            "lbl": "NVS partition"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "NVS_Key_Value_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/storage/nvs_key_value"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "NVS Key Value — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/storage/nvs_key_value",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Credentials, calibration constants, and node identity in wear-levelled flash.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

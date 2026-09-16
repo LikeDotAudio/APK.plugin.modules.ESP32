@@ -1,0 +1,80 @@
+{
+  "RTC_DS3231": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🔋 Battery-backed time that survives a power cut, so logs before the network came back are still valid."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "RTC DS3231 — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🔋 RTC DS3231"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Battery-backed time that survives a power cut, so logs before the network came back are still valid."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "RTC_DS3231_iface",
+            "lbl": "I²C, ±2 ppm"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "RTC_DS3231_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/time/rtc_ds3231"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "RTC DS3231 — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/time/rtc_ds3231",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Battery-backed time that survives a power cut, so logs before the network came back are still valid.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    },
+    "implements": null
+  }
+}

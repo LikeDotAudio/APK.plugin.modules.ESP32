@@ -1,0 +1,80 @@
+{
+  "Static_and_DHCP": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🗺️ Address policy per node, because half of broadcast still runs on static plans and spreadsheets."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Static and DHCP — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🗺️ Static and DHCP"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Address policy per node, because half of broadcast still runs on static plans and spreadsheets."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Static_and_DHCP_iface",
+            "lbl": "Config-driven"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Static_and_DHCP_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/network/static_and_dhcp"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Static and DHCP — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/network/static_and_dhcp",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Address policy per node, because half of broadcast still runs on static plans and spreadsheets.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

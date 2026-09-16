@@ -1,0 +1,149 @@
+{
+  "Version_Manifest": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🏷️ Firmware version, build hash, and feature flags published at boot so the fleet is auditable."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Version Manifest — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🏷️ Version Manifest"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Firmware version, build hash, and feature flags published at boot so the fleet is auditable."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Version_Manifest_iface",
+            "lbl": "Retained MQTT"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Version_Manifest_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/ota/version_manifest"
+          }
+        }
+      },
+      "Control": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Version Manifest — control surface"
+        },
+        "layout_columns": 3,
+        "fields": {
+          "enable": {
+            "type": "_SmartToggle",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/ota/version_manifest/enable",
+            "label": {
+              "En": "Version Manifest Enable"
+            },
+            "geometry": {
+              "width": 90,
+              "height": 45,
+              "font": 14
+            },
+            "interaction": {
+              "options": {
+                "ON": {
+                  "label": {
+                    "active": {
+                      "text": {
+                        "En": "ENABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  },
+                  "selected": false
+                },
+                "OFF": {
+                  "label": {
+                    "inactive": {
+                      "text": {
+                        "En": "DISABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  }
+                }
+              },
+              "is_sticky": true
+            }
+          },
+          "invoke": {
+            "type": "_GuiActuator",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/ota/version_manifest/command",
+            "label": {
+              "active": {
+                "text": {
+                  "En": "WORKING…"
+                }
+              },
+              "inactive": {
+                "text": {
+                  "En": "RUN VERSION MANIFEST"
+                }
+              }
+            },
+            "layout": {
+              "width": 200,
+              "height": 45
+            }
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Version Manifest — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/ota/version_manifest",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Firmware version, build hash, and feature flags published at boot so the fleet is auditable.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

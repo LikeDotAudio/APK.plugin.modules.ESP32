@@ -1,0 +1,80 @@
+{
+  "OSC": {
+    "type": "OcaBin",
+    "implements": null,
+    "description": {
+      "En": "🎯 Open Sound Control for show control desks and DAWs that already speak it."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "OSC — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🎯 OSC"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Open Sound Control for show control desks and DAWs that already speak it."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "OSC_iface",
+            "lbl": "UDP/8000"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "OSC_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/protocols/osc"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "OSC — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/protocols/osc",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Open Sound Control for show control desks and DAWs that already speak it.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

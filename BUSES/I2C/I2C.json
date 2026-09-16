@@ -1,0 +1,80 @@
+{
+  "I2C": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🔗 Two wires, dozens of devices. The workhorse for sensors, expanders, and displays."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "I2C — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🔗 I2C"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Two wires, dozens of devices. The workhorse for sensors, expanders, and displays."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "I2C_iface",
+            "lbl": "100/400 kHz, address map documented per node"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "I2C_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/buses/i2c"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "I2C — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/buses/i2c",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Two wires, dozens of devices. The workhorse for sensors, expanders, and displays.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

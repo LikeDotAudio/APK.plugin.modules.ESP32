@@ -1,0 +1,80 @@
+{
+  "OUTPUTS": {
+    "type": "OcaBin",
+    "description": {
+      "En": "⚡ Switching the world outside 3.3 V logic."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "OUTPUTS — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "⚡ OUTPUTS"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Switching the world outside 3.3 V logic."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "OUTPUTS_iface",
+            "lbl": "Isolated drivers, external supply"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "OUTPUTS_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/outputs"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "OUTPUTS — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/outputs",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Switching the world outside 3.3 V logic.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

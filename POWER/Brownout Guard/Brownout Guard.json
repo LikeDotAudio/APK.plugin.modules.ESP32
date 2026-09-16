@@ -1,0 +1,80 @@
+{
+  "Brownout_Guard": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🛟 Detect sag, flush state to NVS, and reboot cleanly instead of corrupting flash."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Brownout Guard — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🛟 Brownout Guard"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Detect sag, flush state to NVS, and reboot cleanly instead of corrupting flash."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Brownout_Guard_iface",
+            "lbl": "Brownout detector + NVS commit"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Brownout_Guard_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/power/brownout_guard"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Brownout Guard — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/power/brownout_guard",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Detect sag, flush state to NVS, and reboot cleanly instead of corrupting flash.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

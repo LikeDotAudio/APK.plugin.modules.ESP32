@@ -1,0 +1,80 @@
+{
+  "SNTP_Client": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🕰️ Wall-clock sync from the PI host, good to tens of milliseconds."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "SNTP Client — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🕰️ SNTP Client"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Wall-clock sync from the PI host, good to tens of milliseconds."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "SNTP_Client_iface",
+            "lbl": "UDP/123"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "SNTP_Client_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/time/sntp_client"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "SNTP Client — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/time/sntp_client",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Wall-clock sync from the PI host, good to tens of milliseconds.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    },
+    "implements": null
+  }
+}

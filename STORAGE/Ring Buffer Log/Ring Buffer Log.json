@@ -1,0 +1,80 @@
+{
+  "Ring_Buffer_Log": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🔄 A fixed-size flight recorder — the last N events always available after a fault."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Ring Buffer Log — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🔄 Ring Buffer Log"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "A fixed-size flight recorder — the last N events always available after a fault."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Ring_Buffer_Log_iface",
+            "lbl": "Circular buffer in flash"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Ring_Buffer_Log_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/storage/ring_buffer_log"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Ring Buffer Log — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/storage/ring_buffer_log",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "A fixed-size flight recorder — the last N events always available after a fault.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

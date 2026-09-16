@@ -1,0 +1,80 @@
+{
+  "Serial_Console": {
+    "type": "OcaBin",
+    "description": {
+      "En": "⌨️ An interactive shell over UART for the moments the network is the problem."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Serial Console — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "⌨️ Serial Console"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "An interactive shell over UART for the moments the network is the problem."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Serial_Console_iface",
+            "lbl": "115200 baud"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Serial_Console_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/diagnostics/serial_console"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Serial Console — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/diagnostics/serial_console",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "An interactive shell over UART for the moments the network is the problem.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

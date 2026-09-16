@@ -1,0 +1,149 @@
+{
+  "MQTT_Triggered_OTA": {
+    "type": "OcaBin",
+    "description": {
+      "En": "📣 Host publishes a version and URL; the node decides whether it applies to its role."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "MQTT Triggered OTA — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "📣 MQTT Triggered OTA"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Host publishes a version and URL; the node decides whether it applies to its role."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "MQTT_Triggered_OTA_iface",
+            "lbl": "`.../ota/command`"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "MQTT_Triggered_OTA_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/ota/mqtt_triggered_ota"
+          }
+        }
+      },
+      "Control": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "MQTT Triggered OTA — control surface"
+        },
+        "layout_columns": 3,
+        "fields": {
+          "enable": {
+            "type": "_SmartToggle",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/ota/mqtt_triggered_ota/enable",
+            "label": {
+              "En": "MQTT Triggered OTA Enable"
+            },
+            "geometry": {
+              "width": 90,
+              "height": 45,
+              "font": 14
+            },
+            "interaction": {
+              "options": {
+                "ON": {
+                  "label": {
+                    "active": {
+                      "text": {
+                        "En": "ENABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  },
+                  "selected": false
+                },
+                "OFF": {
+                  "label": {
+                    "inactive": {
+                      "text": {
+                        "En": "DISABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  }
+                }
+              },
+              "is_sticky": true
+            }
+          },
+          "invoke": {
+            "type": "_GuiActuator",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/ota/mqtt_triggered_ota/command",
+            "label": {
+              "active": {
+                "text": {
+                  "En": "WORKING…"
+                }
+              },
+              "inactive": {
+                "text": {
+                  "En": "RUN MQTT TRIGGERED OTA"
+                }
+              }
+            },
+            "layout": {
+              "width": 200,
+              "height": 45
+            }
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "MQTT Triggered OTA — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/ota/mqtt_triggered_ota",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Host publishes a version and URL; the node decides whether it applies to its role.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

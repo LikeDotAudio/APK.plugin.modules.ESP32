@@ -1,0 +1,80 @@
+{
+  "CoAP": {
+    "type": "OcaBin",
+    "implements": null,
+    "description": {
+      "En": "🪶 Constrained REST over UDP for battery nodes that cannot afford a TCP handshake."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "CoAP — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🪶 CoAP"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Constrained REST over UDP for battery nodes that cannot afford a TCP handshake."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "CoAP_iface",
+            "lbl": "UDP/5683"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "CoAP_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/protocols/coap"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "CoAP — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/protocols/coap",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Constrained REST over UDP for battery nodes that cannot afford a TCP handshake.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "Device_Manifest": {
+    "type": "OcaBin",
+    "description": {
+      "En": "📋 MAC, chip revision, firmware version, and the full capability list — published once at boot, retained forever."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Device Manifest — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "📋 Device Manifest"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "MAC, chip revision, firmware version, and the full capability list — published once at boot, retained forever."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Device_Manifest_iface",
+            "lbl": "Retained JSON"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Device_Manifest_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/identity/device_manifest"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Device Manifest — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/identity/device_manifest",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "MAC, chip revision, firmware version, and the full capability list — published once at boot, retained forever.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

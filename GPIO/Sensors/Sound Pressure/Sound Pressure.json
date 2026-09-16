@@ -1,0 +1,125 @@
+{
+  "Sound_Pressure": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🔊 Acoustic SPL in the room, not on the wire — the last mile that audio-over-IP never sees."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Sound Pressure — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🔊 Sound Pressure"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Acoustic SPL in the room, not on the wire — the last mile that audio-over-IP never sees."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Sound_Pressure_iface",
+            "lbl": "I²S MEMS mic or analog SPL module"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Sound_Pressure_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/sensors/sound_pressure"
+          }
+        }
+      },
+      "Control": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Sound Pressure — control surface"
+        },
+        "layout_columns": 3,
+        "fields": {
+          "level": {
+            "type": "_SmartMeter",
+            "label": {
+              "En": "Sound Pressure"
+            },
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/sensors/sound_pressure/level",
+            "geometry": {
+              "width": 60,
+              "height": 300,
+              "orientation": "vert"
+            },
+            "domain": {
+              "primary": {
+                "min": -60.0,
+                "max": 6.0,
+                "law": "log",
+                "unit": "dB"
+              }
+            },
+            "dynamics": {
+              "ballistics": "vu",
+              "fps_limit": 60
+            },
+            "cosmetics": {
+              "colors": {
+                "alert": "#ff0000"
+              },
+              "style_flags": {
+                "show_grid": true,
+                "fill_shape": true
+              }
+            },
+            "interaction": {
+              "is_read_only": true
+            }
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Sound Pressure — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/sensors/sound_pressure",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Acoustic SPL in the room, not on the wire — the last mile that audio-over-IP never sees.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

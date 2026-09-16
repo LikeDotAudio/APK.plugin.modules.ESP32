@@ -1,0 +1,80 @@
+{
+  "MUX_TCA9548A": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🔱 Eight I²C branches behind one address, so eight identical sensors can share a bus without a fistfight."
+    },
+    "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/TCA9548A.cpp",
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "MUX TCA9548A — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🔱 MUX TCA9548A"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Eight I²C branches behind one address, so eight identical sensors can share a bus without a fistfight."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "MUX_TCA9548A_iface",
+            "lbl": "I²C mux, already implemented in firmware/ESP32_Beskar2d2"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "MUX_TCA9548A_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/buses/mux_tca9548a"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "MUX TCA9548A — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/buses/mux_tca9548a",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Eight I²C branches behind one address, so eight identical sensors can share a bus without a fistfight.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

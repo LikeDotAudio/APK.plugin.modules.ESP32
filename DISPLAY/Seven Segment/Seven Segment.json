@@ -1,0 +1,80 @@
+{
+  "Seven_Segment": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🔢 Big numbers visible across the room; channel, level, or countdown."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Seven Segment — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🔢 Seven Segment"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Big numbers visible across the room; channel, level, or countdown."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Seven_Segment_iface",
+            "lbl": "I²C HT16K33"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Seven_Segment_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/display/seven_segment"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Seven Segment — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/display/seven_segment",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Big numbers visible across the room; channel, level, or countdown.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

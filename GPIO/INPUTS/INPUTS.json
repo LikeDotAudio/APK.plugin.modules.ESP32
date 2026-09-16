@@ -1,0 +1,80 @@
+{
+  "INPUTS": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🎛️ Human intent, digitised. Debounced, deglitched, and published."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "INPUTS — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🎛️ INPUTS"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Human intent, digitised. Debounced, deglitched, and published."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "INPUTS_iface",
+            "lbl": "Digital in with pull-ups, interrupts"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "INPUTS_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/inputs"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "INPUTS — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/inputs",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Human intent, digitised. Debounced, deglitched, and published.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

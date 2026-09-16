@@ -1,0 +1,80 @@
+{
+  "Art_Net_and_sACN": {
+    "type": "OcaBin",
+    "implements": null,
+    "description": {
+      "En": "🎭 Lighting-world control — take DMX universes in, drive NeoPixels out, or emit fixtures."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Art-Net and sACN — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🎭 Art-Net and sACN"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Lighting-world control — take DMX universes in, drive NeoPixels out, or emit fixtures."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Art_Net_and_sACN_iface",
+            "lbl": "UDP/6454, E1.31"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Art_Net_and_sACN_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/protocols/art_net_and_sacn"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Art-Net and sACN — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/protocols/art_net_and_sacn",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Lighting-world control — take DMX universes in, drive NeoPixels out, or emit fixtures.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

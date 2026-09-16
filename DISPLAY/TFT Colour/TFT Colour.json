@@ -1,0 +1,80 @@
+{
+  "TFT_Colour": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🎨 Colour panels for meters, spectra, and anything that needs more than two shades."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "TFT Colour — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🎨 TFT Colour"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Colour panels for meters, spectra, and anything that needs more than two shades."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "TFT_Colour_iface",
+            "lbl": "SPI ST7789 / ILI9341"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "TFT_Colour_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/display/tft_colour"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "TFT Colour — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/display/tft_colour",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Colour panels for meters, spectra, and anything that needs more than two shades.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

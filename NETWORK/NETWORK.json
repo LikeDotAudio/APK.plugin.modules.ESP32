@@ -1,0 +1,79 @@
+{
+  "NETWORK": {
+    "type": "OcaBin",
+    "description": {
+      "En": "📶 Getting on the wire and staying there."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "NETWORK — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "📶 NETWORK"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Getting on the wire and staying there."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "NETWORK_iface",
+            "lbl": "WiFi + optional Ethernet"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "NETWORK_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/network"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "NETWORK — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/network",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Getting on the wire and staying there.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

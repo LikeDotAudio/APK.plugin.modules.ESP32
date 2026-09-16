@@ -1,0 +1,79 @@
+{
+  "IDENTITY": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🪪 Who this node is, in a fleet where every node is the same board."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "IDENTITY — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🪪 IDENTITY"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Who this node is, in a fleet where every node is the same board."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "IDENTITY_iface",
+            "lbl": "Retained MQTT"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "IDENTITY_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/identity"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "IDENTITY — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/identity",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Who this node is, in a fleet where every node is the same board.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

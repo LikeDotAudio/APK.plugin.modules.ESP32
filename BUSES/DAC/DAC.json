@@ -1,0 +1,80 @@
+{
+  "DAC": {
+    "type": "OcaBin",
+    "description": {
+      "En": "〰️ True analog out for control voltage and simple tone."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "DAC — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "〰️ DAC"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "True analog out for control voltage and simple tone."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "DAC_iface",
+            "lbl": "2 × 8-bit DAC"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "DAC_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/buses/dac"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "DAC — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/buses/dac",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "True analog out for control voltage and simple tone.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

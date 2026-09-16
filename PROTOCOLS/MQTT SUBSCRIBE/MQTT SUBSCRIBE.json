@@ -1,0 +1,80 @@
+{
+  "MQTT_SUBSCRIBE": {
+    "type": "OcaBin",
+    "implements": null,
+    "description": {
+      "En": "📥 Inbound commands and config. The node listens on its own control topic and nowhere else."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "MQTT SUBSCRIBE — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "📥 MQTT SUBSCRIBE"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Inbound commands and config. The node listens on its own control topic and nowhere else."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "MQTT_SUBSCRIBE_iface",
+            "lbl": "`.../control`, `.../config` — QoS 1"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "MQTT_SUBSCRIBE_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/protocols/mqtt_subscribe"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "MQTT SUBSCRIBE — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/protocols/mqtt_subscribe",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Inbound commands and config. The node listens on its own control topic and nowhere else.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

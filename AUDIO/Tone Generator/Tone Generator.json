@@ -1,0 +1,149 @@
+{
+  "Tone_Generator": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🎼 Sine, sweep, pink and white noise on demand — a signal generator that costs six dollars and lives in the rack."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Tone Generator — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🎼 Tone Generator"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Sine, sweep, pink and white noise on demand — a signal generator that costs six dollars and lives in the rack."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Tone_Generator_iface",
+            "lbl": "DDS in firmware"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Tone_Generator_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/audio/tone_generator"
+          }
+        }
+      },
+      "Control": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Tone Generator — control surface"
+        },
+        "layout_columns": 3,
+        "fields": {
+          "enable": {
+            "type": "_SmartToggle",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/audio/tone_generator/enable",
+            "label": {
+              "En": "Tone Generator Enable"
+            },
+            "geometry": {
+              "width": 90,
+              "height": 45,
+              "font": 14
+            },
+            "interaction": {
+              "options": {
+                "ON": {
+                  "label": {
+                    "active": {
+                      "text": {
+                        "En": "ENABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  },
+                  "selected": false
+                },
+                "OFF": {
+                  "label": {
+                    "inactive": {
+                      "text": {
+                        "En": "DISABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  }
+                }
+              },
+              "is_sticky": true
+            }
+          },
+          "invoke": {
+            "type": "_GuiActuator",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/audio/tone_generator/command",
+            "label": {
+              "active": {
+                "text": {
+                  "En": "WORKING…"
+                }
+              },
+              "inactive": {
+                "text": {
+                  "En": "RUN TONE GENERATOR"
+                }
+              }
+            },
+            "layout": {
+              "width": 200,
+              "height": 45
+            }
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Tone Generator — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/audio/tone_generator",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Sine, sweep, pink and white noise on demand — a signal generator that costs six dollars and lives in the rack.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "Water_Leak": {
+    "type": "OcaBin",
+    "description": {
+      "En": "💧 Conductive or float detection under HVAC and battery cabinets. Cheap sensor, expensive silence."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Water Leak — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "💧 Water Leak"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Conductive or float detection under HVAC and battery cabinets. Cheap sensor, expensive silence."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Water_Leak_iface",
+            "lbl": "Digital contact / analog conductivity"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Water_Leak_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/sensors/water_leak"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Water Leak — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/sensors/water_leak",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Conductive or float detection under HVAC and battery cabinets. Cheap sensor, expensive silence.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

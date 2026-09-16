@@ -1,0 +1,79 @@
+{
+  "SECURITY": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🔐 Because a node with a relay on it is a physical actuator on your network."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "SECURITY — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🔐 SECURITY"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Because a node with a relay on it is a physical actuator on your network."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "SECURITY_iface",
+            "lbl": "TLS / secure boot"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "SECURITY_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/security"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "SECURITY — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/security",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Because a node with a relay on it is a physical actuator on your network.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

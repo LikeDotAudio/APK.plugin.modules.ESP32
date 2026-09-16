@@ -1,0 +1,80 @@
+{
+  "Heap_and_Task_Monitor": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🧠 Free heap, largest block, and stack high-water per task — leaks show up here first."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Heap and Task Monitor — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🧠 Heap and Task Monitor"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Free heap, largest block, and stack high-water per task — leaks show up here first."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Heap_and_Task_Monitor_iface",
+            "lbl": "FreeRTOS introspection"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Heap_and_Task_Monitor_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/diagnostics/heap_and_task_monitor"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Heap and Task Monitor — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/diagnostics/heap_and_task_monitor",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Free heap, largest block, and stack high-water per task — leaks show up here first.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

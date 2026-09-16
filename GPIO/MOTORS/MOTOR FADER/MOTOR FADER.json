@@ -1,0 +1,172 @@
+{
+  "MOTOR_FADER": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🎚️ The console primitive: a motorised 10 k fader that is both a control surface and a display. Touch-sense detects the operator's finger and yields to them."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "MOTOR FADER — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🎚️ MOTOR FADER"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "The console primitive: a motorised 10 k fader that is both a control surface and a display. Touch-sense detects the operator's finger and yields to them."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "MOTOR_FADER_iface",
+            "lbl": "H-bridge + ADC wiper + capacitive touch sense"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "MOTOR_FADER_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors/motor_fader"
+          }
+        }
+      },
+      "Control": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "MOTOR FADER — control surface"
+        },
+        "layout_columns": 3,
+        "fields": {
+          "enable": {
+            "type": "_SmartToggle",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors/motor_fader/enable",
+            "label": {
+              "En": "MOTOR FADER Enable"
+            },
+            "geometry": {
+              "width": 90,
+              "height": 45,
+              "font": 14
+            },
+            "interaction": {
+              "options": {
+                "ON": {
+                  "label": {
+                    "active": {
+                      "text": {
+                        "En": "ENABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  },
+                  "selected": false
+                },
+                "OFF": {
+                  "label": {
+                    "inactive": {
+                      "text": {
+                        "En": "DISABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  }
+                }
+              },
+              "is_sticky": true
+            }
+          },
+          "invoke": {
+            "type": "_GuiActuator",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors/motor_fader/command",
+            "label": {
+              "active": {
+                "text": {
+                  "En": "WORKING…"
+                }
+              },
+              "inactive": {
+                "text": {
+                  "En": "RUN MOTOR FADER"
+                }
+              }
+            },
+            "layout": {
+              "width": 200,
+              "height": 45
+            }
+          },
+          "setpoint": {
+            "type": "_SmartKnob",
+            "label": {
+              "En": "MOTOR FADER Setpoint"
+            },
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors/motor_fader/setpoint",
+            "geometry": {
+              "width": 100,
+              "height": 100
+            },
+            "domain": {
+              "primary": {
+                "min": 0.0,
+                "max": 100.0,
+                "unit": "%"
+              }
+            },
+            "cosmetics": {
+              "style_flags": {
+                "show_grid": true
+              }
+            }
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "MOTOR FADER — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors/motor_fader",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "The console primitive: a motorised 10 k fader that is both a control surface and a display. Touch-sense detects the operator's finger and yields to them.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

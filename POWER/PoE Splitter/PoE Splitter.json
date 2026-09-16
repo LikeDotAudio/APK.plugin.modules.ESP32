@@ -1,0 +1,80 @@
+{
+  "PoE_Splitter": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🕸️ One cable for data and power; the sane way to deploy dozens of nodes."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "PoE Splitter — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🕸️ PoE Splitter"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "One cable for data and power; the sane way to deploy dozens of nodes."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "PoE_Splitter_iface",
+            "lbl": "802.3af splitter"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "PoE_Splitter_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/power/poe_splitter"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "PoE Splitter — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/power/poe_splitter",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "One cable for data and power; the sane way to deploy dozens of nodes.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

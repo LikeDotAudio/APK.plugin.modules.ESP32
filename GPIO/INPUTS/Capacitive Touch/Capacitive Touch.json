@@ -1,0 +1,80 @@
+{
+  "Capacitive_Touch": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🫳 The ESP32's native touch pads: no moving parts, no bezels, no failure mode."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Capacitive Touch — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🫳 Capacitive Touch"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "The ESP32's native touch pads: no moving parts, no bezels, no failure mode."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Capacitive_Touch_iface",
+            "lbl": "Built-in touch peripheral, 10 channels"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Capacitive_Touch_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/inputs/capacitive_touch"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Capacitive Touch — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/inputs/capacitive_touch",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "The ESP32's native touch pads: no moving parts, no bezels, no failure mode.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

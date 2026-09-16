@@ -1,0 +1,172 @@
+{
+  "SERVO": {
+    "type": "OcaBin",
+    "description": {
+      "En": "📐 Hobby and industrial servos for pan, tilt, flap, and lever duty."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "SERVO — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "📐 SERVO"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Hobby and industrial servos for pan, tilt, flap, and lever duty."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "SERVO_iface",
+            "lbl": "LEDC 50 Hz pulse, 1–2 ms"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "SERVO_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors/servo"
+          }
+        }
+      },
+      "Control": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "SERVO — control surface"
+        },
+        "layout_columns": 3,
+        "fields": {
+          "enable": {
+            "type": "_SmartToggle",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors/servo/enable",
+            "label": {
+              "En": "SERVO Enable"
+            },
+            "geometry": {
+              "width": 90,
+              "height": 45,
+              "font": 14
+            },
+            "interaction": {
+              "options": {
+                "ON": {
+                  "label": {
+                    "active": {
+                      "text": {
+                        "En": "ENABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  },
+                  "selected": false
+                },
+                "OFF": {
+                  "label": {
+                    "inactive": {
+                      "text": {
+                        "En": "DISABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  }
+                }
+              },
+              "is_sticky": true
+            }
+          },
+          "invoke": {
+            "type": "_GuiActuator",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors/servo/command",
+            "label": {
+              "active": {
+                "text": {
+                  "En": "WORKING…"
+                }
+              },
+              "inactive": {
+                "text": {
+                  "En": "RUN SERVO"
+                }
+              }
+            },
+            "layout": {
+              "width": 200,
+              "height": 45
+            }
+          },
+          "setpoint": {
+            "type": "_SmartKnob",
+            "label": {
+              "En": "SERVO Setpoint"
+            },
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors/servo/setpoint",
+            "geometry": {
+              "width": 100,
+              "height": 100
+            },
+            "domain": {
+              "primary": {
+                "min": 0.0,
+                "max": 100.0,
+                "unit": "%"
+              }
+            },
+            "cosmetics": {
+              "style_flags": {
+                "show_grid": true
+              }
+            }
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "SERVO — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/motors/servo",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Hobby and industrial servos for pan, tilt, flap, and lever duty.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "I2S": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🎵 Real digital audio in and out of the MCU. This is what makes the node an audio device rather than a thermometer."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "I2S — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🎵 I2S"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Real digital audio in and out of the MCU. This is what makes the node an audio device rather than a thermometer."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "I2S_iface",
+            "lbl": "2 I²S peripherals, master or slave clocking"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "I2S_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/buses/i2s"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "I2S — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/buses/i2s",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Real digital audio in and out of the MCU. This is what makes the node an audio device rather than a thermometer.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

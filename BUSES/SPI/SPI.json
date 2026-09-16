@@ -1,0 +1,80 @@
+{
+  "SPI": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🏎️ High speed full-duplex for displays, SD cards, and ADCs that cannot wait for I²C."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "SPI — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🏎️ SPI"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "High speed full-duplex for displays, SD cards, and ADCs that cannot wait for I²C."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "SPI_iface",
+            "lbl": "Up to 80 MHz, per-device CS"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "SPI_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/buses/spi"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "SPI — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/buses/spi",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "High speed full-duplex for displays, SD cards, and ADCs that cannot wait for I²C.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

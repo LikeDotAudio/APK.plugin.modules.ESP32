@@ -1,0 +1,172 @@
+{
+  "Status_Beacon": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🚨 The node's own mood ring: boot, wifi-hunting, broker-connected, fault. Readable without a laptop."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Status Beacon — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🚨 Status Beacon"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "The node's own mood ring: boot, wifi-hunting, broker-connected, fault. Readable without a laptop."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Status_Beacon_iface",
+            "lbl": "Single RGB or 3 discrete pins"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Status_Beacon_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/led/status_beacon"
+          }
+        }
+      },
+      "Control": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Status Beacon — control surface"
+        },
+        "layout_columns": 3,
+        "fields": {
+          "enable": {
+            "type": "_SmartToggle",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/led/status_beacon/enable",
+            "label": {
+              "En": "Status Beacon Enable"
+            },
+            "geometry": {
+              "width": 90,
+              "height": 45,
+              "font": 14
+            },
+            "interaction": {
+              "options": {
+                "ON": {
+                  "label": {
+                    "active": {
+                      "text": {
+                        "En": "ENABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  },
+                  "selected": false
+                },
+                "OFF": {
+                  "label": {
+                    "inactive": {
+                      "text": {
+                        "En": "DISABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  }
+                }
+              },
+              "is_sticky": true
+            }
+          },
+          "invoke": {
+            "type": "_GuiActuator",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/led/status_beacon/command",
+            "label": {
+              "active": {
+                "text": {
+                  "En": "WORKING…"
+                }
+              },
+              "inactive": {
+                "text": {
+                  "En": "RUN STATUS BEACON"
+                }
+              }
+            },
+            "layout": {
+              "width": 200,
+              "height": 45
+            }
+          },
+          "setpoint": {
+            "type": "_SmartKnob",
+            "label": {
+              "En": "Status Beacon Setpoint"
+            },
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/led/status_beacon/setpoint",
+            "geometry": {
+              "width": 100,
+              "height": 100
+            },
+            "domain": {
+              "primary": {
+                "min": 0.0,
+                "max": 100.0,
+                "unit": "%"
+              }
+            },
+            "cosmetics": {
+              "style_flags": {
+                "show_grid": true
+              }
+            }
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Status Beacon — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/led/status_beacon",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "The node's own mood ring: boot, wifi-hunting, broker-connected, fault. Readable without a laptop.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

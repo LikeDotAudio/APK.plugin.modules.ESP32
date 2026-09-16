@@ -1,0 +1,185 @@
+{
+  "Level_Metering": {
+    "type": "OcaBin",
+    "description": {
+      "En": "📈 Peak, RMS, and true-peak over a window, published as numbers rather than pictures."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Level Metering — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "📈 Level Metering"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Peak, RMS, and true-peak over a window, published as numbers rather than pictures."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Level_Metering_iface",
+            "lbl": "Fixed-point DSP"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Level_Metering_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/audio/level_metering"
+          }
+        }
+      },
+      "Control": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Level Metering — control surface"
+        },
+        "layout_columns": 3,
+        "fields": {
+          "enable": {
+            "type": "_SmartToggle",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/audio/level_metering/enable",
+            "label": {
+              "En": "Level Metering Enable"
+            },
+            "geometry": {
+              "width": 90,
+              "height": 45,
+              "font": 14
+            },
+            "interaction": {
+              "options": {
+                "ON": {
+                  "label": {
+                    "active": {
+                      "text": {
+                        "En": "ENABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  },
+                  "selected": false
+                },
+                "OFF": {
+                  "label": {
+                    "inactive": {
+                      "text": {
+                        "En": "DISABLED"
+                      },
+                      "text_size": 12,
+                      "text_color": "#cccccc"
+                    }
+                  }
+                }
+              },
+              "is_sticky": true
+            }
+          },
+          "invoke": {
+            "type": "_GuiActuator",
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/audio/level_metering/command",
+            "label": {
+              "active": {
+                "text": {
+                  "En": "WORKING…"
+                }
+              },
+              "inactive": {
+                "text": {
+                  "En": "RUN LEVEL METERING"
+                }
+              }
+            },
+            "layout": {
+              "width": 200,
+              "height": 45
+            }
+          },
+          "level": {
+            "type": "_SmartMeter",
+            "label": {
+              "En": "Level Metering"
+            },
+            "topic": "APK.audio/System/BareMetal/ESP32/{node}/audio/level_metering/level",
+            "geometry": {
+              "width": 60,
+              "height": 300,
+              "orientation": "vert"
+            },
+            "domain": {
+              "primary": {
+                "min": -60.0,
+                "max": 6.0,
+                "law": "log",
+                "unit": "dB"
+              }
+            },
+            "dynamics": {
+              "ballistics": "vu",
+              "fps_limit": 60
+            },
+            "cosmetics": {
+              "colors": {
+                "alert": "#ff0000"
+              },
+              "style_flags": {
+                "show_grid": true,
+                "fill_shape": true
+              }
+            },
+            "interaction": {
+              "is_read_only": true
+            }
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Level Metering — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/audio/level_metering",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Peak, RMS, and true-peak over a window, published as numbers rather than pictures.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "Provisioning_Portal": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🧭 First-boot captive portal: pick SSID, enter broker, name the node, reboot. No hardcoded credentials, ever."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Provisioning Portal — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🧭 Provisioning Portal"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "First-boot captive portal: pick SSID, enter broker, name the node, reboot. No hardcoded credentials, ever."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Provisioning_Portal_iface",
+            "lbl": "SoftAP + captive DNS"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Provisioning_Portal_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/network/provisioning_portal"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Provisioning Portal — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/network/provisioning_portal",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "First-boot captive portal: pick SSID, enter broker, name the node, reboot. No hardcoded credentials, ever.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

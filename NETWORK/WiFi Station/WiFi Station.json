@@ -1,0 +1,80 @@
+{
+  "WiFi_Station": {
+    "type": "OcaBin",
+    "description": {
+      "En": "📡 Normal client mode with roaming, RSSI reporting, and exponential-backoff reconnect."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "WiFi Station — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "📡 WiFi Station"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Normal client mode with roaming, RSSI reporting, and exponential-backoff reconnect."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "WiFi_Station_iface",
+            "lbl": "802.11 b/g/n, 2.4 GHz"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "WiFi_Station_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/network/wifi_station"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "WiFi Station — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/network/wifi_station",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Normal client mode with roaming, RSSI reporting, and exponential-backoff reconnect.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

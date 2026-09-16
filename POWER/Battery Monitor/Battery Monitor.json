@@ -1,0 +1,80 @@
+{
+  "Battery_Monitor": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🪫 State of charge and discharge slope for portable and UPS-backed nodes."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Battery Monitor — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🪫 Battery Monitor"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "State of charge and discharge slope for portable and UPS-backed nodes."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Battery_Monitor_iface",
+            "lbl": "INA219 / ADC divider"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Battery_Monitor_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/power/battery_monitor"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Battery Monitor — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/power/battery_monitor",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "State of charge and discharge slope for portable and UPS-backed nodes.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "Air_Quality": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🫁 CO2, VOC and particulates in a sealed machine room full of people and heat."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Air Quality — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🫁 Air Quality"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "CO2, VOC and particulates in a sealed machine room full of people and heat."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Air_Quality_iface",
+            "lbl": "I²C SGP30 / SCD41"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Air_Quality_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/sensors/air_quality"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Air Quality — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/sensors/air_quality",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "CO2, VOC and particulates in a sealed machine room full of people and heat.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

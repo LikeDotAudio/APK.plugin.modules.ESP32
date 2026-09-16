@@ -1,0 +1,80 @@
+{
+  "Watchdog": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🐶 Task and interrupt watchdogs that reboot a wedged node instead of leaving it silently dead."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Watchdog — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🐶 Watchdog"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Task and interrupt watchdogs that reboot a wedged node instead of leaving it silently dead."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Watchdog_iface",
+            "lbl": "TWDT / IWDT"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Watchdog_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/diagnostics/watchdog"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Watchdog — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/diagnostics/watchdog",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Task and interrupt watchdogs that reboot a wedged node instead of leaving it silently dead.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

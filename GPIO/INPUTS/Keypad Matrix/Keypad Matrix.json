@@ -1,0 +1,80 @@
+{
+  "Keypad_Matrix": {
+    "type": "OcaBin",
+    "description": {
+      "En": "⌨️ Scanned row/column matrices for panels with more buttons than the ESP32 has pins."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Keypad Matrix — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "⌨️ Keypad Matrix"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Scanned row/column matrices for panels with more buttons than the ESP32 has pins."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Keypad_Matrix_iface",
+            "lbl": "GPIO scan or I²C expander"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Keypad_Matrix_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/inputs/keypad_matrix"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Keypad Matrix — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/inputs/keypad_matrix",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Scanned row/column matrices for panels with more buttons than the ESP32 has pins.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

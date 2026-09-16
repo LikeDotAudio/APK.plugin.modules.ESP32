@@ -1,0 +1,79 @@
+{
+  "BUSES": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🚌 The silicon-level transports every peripheral above rides on. Own the bus, own the node."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "BUSES — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🚌 BUSES"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "The silicon-level transports every peripheral above rides on. Own the bus, own the node."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "BUSES_iface",
+            "lbl": "On-chip peripherals"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "BUSES_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/buses"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "BUSES — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/buses",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "The silicon-level transports every peripheral above rides on. Own the bus, own the node.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

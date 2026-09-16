@@ -1,0 +1,80 @@
+{
+  "ESP_NOW_Mesh": {
+    "type": "OcaBin",
+    "implements": null,
+    "description": {
+      "En": "🕷️ Broker-free peer-to-peer between nodes — works with no AP, no DHCP, no infrastructure. The survival protocol."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "ESP-NOW Mesh — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🕷️ ESP-NOW Mesh"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Broker-free peer-to-peer between nodes — works with no AP, no DHCP, no infrastructure. The survival protocol."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "ESP_NOW_Mesh_iface",
+            "lbl": "2.4 GHz, MAC addressed"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "ESP_NOW_Mesh_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/protocols/esp_now_mesh"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "ESP-NOW Mesh — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/protocols/esp_now_mesh",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Broker-free peer-to-peer between nodes — works with no AP, no DHCP, no infrastructure. The survival protocol.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "DIAGNOSTICS": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🩺 Making the node explain itself."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "DIAGNOSTICS — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🩺 DIAGNOSTICS"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Making the node explain itself."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "DIAGNOSTICS_iface",
+            "lbl": "Serial / MQTT"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "DIAGNOSTICS_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/diagnostics"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "DIAGNOSTICS — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/diagnostics",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Making the node explain itself.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

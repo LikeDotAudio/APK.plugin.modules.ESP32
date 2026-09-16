@@ -1,0 +1,80 @@
+{
+  "TLS_Certificates": {
+    "type": "OcaBin",
+    "description": {
+      "En": "📜 CA-pinned TLS to the broker; no plaintext credentials on the wire."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "TLS Certificates — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "📜 TLS Certificates"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "CA-pinned TLS to the broker; no plaintext credentials on the wire."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "TLS_Certificates_iface",
+            "lbl": "MQTTS/8883"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "TLS_Certificates_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/security/tls_certificates"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "TLS Certificates — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/security/tls_certificates",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "CA-pinned TLS to the broker; no plaintext credentials on the wire.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

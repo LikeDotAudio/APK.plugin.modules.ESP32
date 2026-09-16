@@ -1,0 +1,80 @@
+{
+  "MQTT_TRANSMIT": {
+    "type": "OcaBin",
+    "implements": null,
+    "description": {
+      "En": "📤 Outbound telemetry, status, and heartbeat — retained where it represents current state."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "MQTT TRANSMIT — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "📤 MQTT TRANSMIT"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Outbound telemetry, status, and heartbeat — retained where it represents current state."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "MQTT_TRANSMIT_iface",
+            "lbl": "`.../status`, `.../telemetry` — retained"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "MQTT_TRANSMIT_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/protocols/mqtt_transmit"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "MQTT TRANSMIT — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/protocols/mqtt_transmit",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Outbound telemetry, status, and heartbeat — retained where it represents current state.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

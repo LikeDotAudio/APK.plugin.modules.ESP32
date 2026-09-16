@@ -1,0 +1,80 @@
+{
+  "Proximity": {
+    "type": "OcaBin",
+    "description": {
+      "En": "👋 Presence and distance — is someone at the rack, is the drawer closed, is the reel still loaded."
+    },
+    "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/sensors/sensor_proximity.cpp",
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Proximity — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "👋 Proximity"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Presence and distance — is someone at the rack, is the drawer closed, is the reel still loaded."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Proximity_iface",
+            "lbl": "I²C VL53L0X / IR reflective"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Proximity_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/sensors/proximity"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Proximity — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/sensors/proximity",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Presence and distance — is someone at the rack, is the drawer closed, is the reel still loaded.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "CAN": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🚗 Differential, noise-immune, long-run control bus for industrial and vehicle installs."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "CAN — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🚗 CAN"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Differential, noise-immune, long-run control bus for industrial and vehicle installs."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "CAN_iface",
+            "lbl": "TWAI controller + transceiver"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "CAN_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/buses/can"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "CAN — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/buses/can",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Differential, noise-immune, long-run control bus for industrial and vehicle installs.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

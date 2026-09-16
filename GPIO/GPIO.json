@@ -1,0 +1,79 @@
+{
+  "GPIO": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🔌 Every physical pin the node can push, pull, read or blink. This is where the firmware stops being software and starts being voltage."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "GPIO — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🔌 GPIO"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Every physical pin the node can push, pull, read or blink. This is where the firmware stops being software and starts being voltage."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "GPIO_iface",
+            "lbl": "3V3 logic, 34 usable pins on a Wemos D1 Mini32"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "GPIO_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "GPIO — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Every physical pin the node can push, pull, read or blink. This is where the firmware stops being software and starts being voltage.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

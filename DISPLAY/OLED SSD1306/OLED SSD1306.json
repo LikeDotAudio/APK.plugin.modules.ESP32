@@ -1,0 +1,80 @@
+{
+  "OLED_SSD1306": {
+    "type": "OcaBin",
+    "description": {
+      "En": "📟 The 128×64 workhorse already driven by U8glib in the Beskar2d2 firmware."
+    },
+    "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/drivers/driver_oled_display.cpp",
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "OLED SSD1306 — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "📟 OLED SSD1306"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "The 128×64 workhorse already driven by U8glib in the Beskar2d2 firmware."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "OLED_SSD1306_iface",
+            "lbl": "I²C, see src/drivers/driver_oled_display.cpp"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "OLED_SSD1306_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/display/oled_ssd1306"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "OLED SSD1306 — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/display/oled_ssd1306",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "The 128×64 workhorse already driven by U8glib in the Beskar2d2 firmware.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

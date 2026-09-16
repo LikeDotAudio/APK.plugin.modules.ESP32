@@ -1,0 +1,80 @@
+{
+  "Blink_To_Identify": {
+    "type": "OcaBin",
+    "description": {
+      "En": "👁️ \"Which one of these forty is it?\" — a topic that makes exactly one node flash."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Blink To Identify — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "👁️ Blink To Identify"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "\"Which one of these forty is it?\" — a topic that makes exactly one node flash."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Blink_To_Identify_iface",
+            "lbl": "`.../identify`"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Blink_To_Identify_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/diagnostics/blink_to_identify"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Blink To Identify — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/diagnostics/blink_to_identify",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "\"Which one of these forty is it?\" — a topic that makes exactly one node flash.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

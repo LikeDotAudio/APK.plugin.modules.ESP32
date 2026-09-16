@@ -1,0 +1,80 @@
+{
+  "MIDI_over_IP": {
+    "type": "OcaBin",
+    "implements": null,
+    "description": {
+      "En": "🎹 RTP-MIDI and USB-MIDI so the node appears as an instrument or controller."
+    },
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "MIDI over IP — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🎹 MIDI over IP"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "RTP-MIDI and USB-MIDI so the node appears as an instrument or controller."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "MIDI_over_IP_iface",
+            "lbl": "RTP-MIDI/5004"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "MIDI_over_IP_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/protocols/midi_over_ip"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "MIDI over IP — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/protocols/midi_over_ip",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "RTP-MIDI and USB-MIDI so the node appears as an instrument or controller.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}

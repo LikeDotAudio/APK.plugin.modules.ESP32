@@ -1,0 +1,80 @@
+{
+  "Rotary_Encoders": {
+    "type": "OcaBin",
+    "description": {
+      "En": "🎠 Quadrature encoders with detent tracking and acceleration — endless knobs for parameter control."
+    },
+    "implements": null,
+    "behavior": {
+      "overflow_ns": "auto"
+    },
+    "blocks": {
+      "Identity": {
+        "type": "OcaBlock",
+        "description": {
+          "En": "Rotary Encoders — identity and binding"
+        },
+        "layout_columns": 2,
+        "fields": {
+          "identity": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "🎠 Rotary Encoders"
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "purpose": {
+            "type": "_Label",
+            "domain": {
+              "units": null
+            },
+            "label": {
+              "En": "Quadrature encoders with detent tracking and acceleration — endless knobs for parameter control."
+            },
+            "AES70": "OcaStringSensor"
+          },
+          "interface": {
+            "type": "_ValueBox",
+            "id": "Rotary_Encoders_iface",
+            "lbl": "Two-pin quadrature + push"
+          },
+          "topic": {
+            "type": "_ValueBox",
+            "id": "Rotary_Encoders_topic",
+            "lbl": "APK.audio/System/BareMetal/ESP32/{node}/gpio/inputs/rotary_encoders"
+          }
+        }
+      },
+      "Telemetry": {
+        "type": "OcaTable",
+        "description": "Rotary Encoders — live telemetry",
+        "topic": "APK.audio/System/BareMetal/ESP32/{node}/gpio/inputs/rotary_encoders",
+        "headers": [
+          "node",
+          "key",
+          "value",
+          "unit",
+          "quality",
+          "last_seen"
+        ],
+        "read_cvs": true,
+        "write_cvs": false,
+        "Add_Row": false,
+        "Delete_Row": false,
+        "Undo": false,
+        "height": 8,
+        "Sort": true,
+        "data": {},
+        "notes": "Quadrature encoders with detent tracking and acceleration — endless knobs for parameter control.",
+        "layout": {
+          "sticky": "ew",
+          "padx": 5,
+          "pady": 5
+        }
+      }
+    }
+  }
+}
