@@ -4,7 +4,7 @@ Is `DATA.ESP32` deployed? Written by `.apk.scripts/smoke.py` from the module's o
 
 ← [Wiki home](../README.md)
 
-**✅ PASS** — 1/1 checks, since 2026-10-30 12:50 EDT
+**✅ PASS** — 1/1 checks, since 2026-10-30 12:51 EDT
 
 | Check | Target | Result | Detail |
 |---|---|---|---|
@@ -12,4 +12,4 @@ Is `DATA.ESP32` deployed? Written by `.apk.scripts/smoke.py` from the module's o
 
 Re-run: `python3 .apk.scripts/smoke.py PODS/POD.THICK/DATA/DATA.ESP32`
 
-<!-- smoke:sig 61ce54058f3c since 2026-10-30 12:50 EDT -->
+<!-- smoke:sig 1b88f7be5825 since 2026-10-30 12:51 EDT -->
