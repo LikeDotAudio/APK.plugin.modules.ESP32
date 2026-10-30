@@ -10,6 +10,6 @@ No image or service of its own. Because `SRC/Cargo.toml` is a member of the `DIS
 | `node-baremetal:local` | `NODE.BareMetal/Docker/Dockerfile` line 75 |
 | Broker | `DATABUS.Broker.MQTT/Docker/Dockerfile` line 63 |
 
-The JSON rides along; nothing in those images reads it. The stub crate builds: `cd ../../DISCOVERY.Engine/SRC && cargo check -p apkaudio-plugin-modules-esp32`. `python3 .apk.scripts/smoke.py PODS/POD.THICK/DATA/DATA.ESP32` (root) checks the repo is pushed — [SMOKE.md](../%F0%9F%A7%A9Manual%20and%20Artifacts/SMOKE.md).
+The crate compiles the JSON in and reads it (`build.rs`, `src/lib.rs`); no service in those images consumes it. The reader's check: `cd ../../DISCOVERY.Engine/SRC && cargo test -p apkaudio-plugin-modules-esp32` (all 124 read). `python3 .apk.scripts/smoke.py PODS/POD.THICK/DATA/DATA.ESP32` (root) checks the repo is pushed — [SMOKE.md](../%F0%9F%A7%A9Manual%20and%20Artifacts/SMOKE.md).
 
-**Not automated:** no CI, no JSON parse check in any gate, no live URL. Removing the workspace membership would need the three Dockerfiles and `Cargo.toml` changed together.
+**Not automated:** no CI runs the reader, no gate runs `cargo test` on it, no live URL. Removing the workspace membership would need the three Dockerfiles and `Cargo.toml` changed together.

@@ -9,8 +9,8 @@ The ESP32 node description — what an ESP32 node can carry, by subsystem, writt
 | **Recipe** | none — data, not a container: other stacks read it or copy it in |
 | **Source** | `SRC/` (this repository — https://github.com/LikeDotAudio/APK.plugin.modules.ESP32.git) |
 | **Manifests** | `SRC/ESP32.json` (the node) · one `<DOMAIN>/<DOMAIN>.json` per domain · one `<DOMAIN>/<Module>/<Module>.json` per module — 13 domains (AUDIO, BUSES, DIAGNOSTICS, DISPLAY, GPIO, IDENTITY, NETWORK, OTA, POWER, PROTOCOLS, SECURITY, STORAGE, TIME), 110 modules, 124 files |
-| **Crate** | `apkaudio-plugin-modules-esp32` (`SRC/Cargo.toml`, `SRC/src/main.rs`) — a stub binary that prints its name and nothing else |
-| **Used by** | the crate is a member of the `DISCOVERY.Engine/SRC` workspace, so every image that builds that workspace copies `SRC/` in (`DISCOVERY.Engine`, `NODE.BareMetal`, `DATABUS.Broker.MQTT` Dockerfiles). No code in the tree opens the JSON manifests by path; the firmware itself lives in `NODE.BareMetal` |
+| **Crate** | `apkaudio-plugin-modules-esp32` (`SRC/Cargo.toml`, `SRC/build.rs`, `SRC/src/lib.rs`, `SRC/src/main.rs`) — the manifests' reader: `build.rs` compiles every `SRC/**/*.json` in, `read()` parses each and refuses one that is not a single `OcaBin` named after its file, has no `Identity.topic` under the node root, reuses another's topic, or declares a widget topic outside its own; the binary prints `path  topic  interface` per manifest |
+| **Used by** | the crate is a member of the `DISCOVERY.Engine/SRC` workspace, so every image that builds that workspace copies `SRC/` in (`DISCOVERY.Engine`, `NODE.BareMetal`, `DATABUS.Broker.MQTT` Dockerfiles). The crate is the manifests' only reader (compiled in, not opened by path); the firmware itself lives in `NODE.BareMetal` |
 
 Was `APK:BareMetal/PLUGINS/PLUGIN:modules:ESP32`.
 
@@ -25,7 +25,8 @@ Every file is one `OcaBin` keyed by the module name, with `OcaBlock`s inside:
 
 ```bash
 cd ../../DISCOVERY.Engine/SRC
-cargo check -p apkaudio-plugin-modules-esp32      # passes, 2026-10-30
+cargo test -p apkaudio-plugin-modules-esp32       # reads all 124, 2026-10-30
+cargo run -q -p apkaudio-plugin-modules-esp32     # the catalogue: path, topic, interface
 python3 -c 'import json,glob; [json.load(open(f)) for f in glob.glob("SRC/**/*.json", recursive=True)]'   # from this folder: every manifest parses
 ```
 

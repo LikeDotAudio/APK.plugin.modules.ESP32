@@ -11,7 +11,7 @@ SRC/ESP32.json                         the node (one OcaBin)
 SRC/<DOMAIN>/<DOMAIN>.json             13 domains: AUDIO BUSES DIAGNOSTICS DISPLAY GPIO IDENTITY
                                        NETWORK OTA POWER PROTOCOLS SECURITY STORAGE TIME
 SRC/<DOMAIN>/<Module>/<Module>.json    110 modules (a few one level deeper, e.g. GPIO/LED/NEOPIXELS)
-SRC/Cargo.toml, SRC/src/main.rs        stub crate apkaudio-plugin-modules-esp32
+SRC/Cargo.toml, build.rs, src/         apkaudio-plugin-modules-esp32, the manifests' reader
 ```
 
 ## A manifest
