@@ -1,5 +1,7 @@
 # DATA.ESP32
 
+**Wiki:** [Documentation/README.md](Documentation/README.md) — principles, architecture, delivery.
+
 The ESP32 node description — what an ESP32 node can carry, by subsystem, written as AES70-shaped frames.
 
 | | |
