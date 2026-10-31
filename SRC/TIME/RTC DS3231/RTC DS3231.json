@@ -1,6 +1,8 @@
 {
   "RTC_DS3231": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🔋 Battery-backed time that survives a power cut, so logs before the network came back are still valid."
     },

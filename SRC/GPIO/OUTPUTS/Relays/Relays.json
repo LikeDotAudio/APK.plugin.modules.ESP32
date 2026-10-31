@@ -1,6 +1,8 @@
 {
   "Relays": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🔀 Mains and line-level contact closure — GPIO for legacy gear that only speaks dry contact."
     },

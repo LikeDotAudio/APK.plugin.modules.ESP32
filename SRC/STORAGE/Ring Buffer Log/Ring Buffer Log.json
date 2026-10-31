@@ -1,6 +1,8 @@
 {
   "Ring_Buffer_Log": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🔄 A fixed-size flight recorder — the last N events always available after a fault."
     },

@@ -1,6 +1,8 @@
 {
   "MOTOR_FADER": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🎚️ The console primitive: a motorised 10 k fader that is both a control surface and a display. Touch-sense detects the operator's finger and yields to them."
     },

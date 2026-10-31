@@ -1,6 +1,8 @@
 {
   "Buttons": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🔘 Momentary and latching switches with hardware and software debounce, long-press and double-tap gestures."
     },

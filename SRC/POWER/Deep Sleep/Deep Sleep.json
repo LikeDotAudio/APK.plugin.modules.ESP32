@@ -1,6 +1,8 @@
 {
   "Deep_Sleep": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "😴 Microamp sleep between samples, so a node can live for months on a cell."
     },

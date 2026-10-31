@@ -1,6 +1,8 @@
 {
   "Water_Leak": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "💧 Conductive or float detection under HVAC and battery cabinets. Cheap sensor, expensive silence."
     },

@@ -1,6 +1,8 @@
 {
   "Watchdog": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🐶 Task and interrupt watchdogs that reboot a wedged node instead of leaving it silently dead."
     },

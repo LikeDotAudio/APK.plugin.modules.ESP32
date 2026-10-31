@@ -1,6 +1,8 @@
 {
   "GPIO_Expander": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🧩 More pins than the package has: PCF8574/MCP23017 chains off I²C."
     },

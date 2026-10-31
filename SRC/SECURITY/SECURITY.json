@@ -1,6 +1,8 @@
 {
   "SECURITY": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🔐 Because a node with a relay on it is a physical actuator on your network."
     },

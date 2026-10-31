@@ -1,6 +1,8 @@
 {
   "LittleFS": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "📁 A real filesystem for web assets, config files, and captured buffers."
     },

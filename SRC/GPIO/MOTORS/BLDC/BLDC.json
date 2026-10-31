@@ -1,6 +1,8 @@
 {
   "BLDC": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🌀 Brushless drive with commutation and RPM telemetry — fans, blowers, spin rigs."
     },

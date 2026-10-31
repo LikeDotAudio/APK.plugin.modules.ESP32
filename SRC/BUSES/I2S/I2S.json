@@ -1,6 +1,8 @@
 {
   "I2S": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🎵 Real digital audio in and out of the MCU. This is what makes the node an audio device rather than a thermometer."
     },

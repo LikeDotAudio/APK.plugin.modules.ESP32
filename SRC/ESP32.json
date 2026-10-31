@@ -1,6 +1,8 @@
 {
   "ESP32": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🔩 The node itself — thirteen domains and 110 modules, each declaring its interface, its topic and its telemetry table."
     },

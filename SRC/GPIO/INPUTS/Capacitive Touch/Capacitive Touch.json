@@ -1,6 +1,8 @@
 {
   "Capacitive_Touch": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🫳 The ESP32's native touch pads: no moving parts, no bezels, no failure mode."
     },

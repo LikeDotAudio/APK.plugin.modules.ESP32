@@ -1,6 +1,8 @@
 {
   "Keypad_Matrix": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "⌨️ Scanned row/column matrices for panels with more buttons than the ESP32 has pins."
     },

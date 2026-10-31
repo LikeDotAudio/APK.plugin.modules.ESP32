@@ -1,6 +1,8 @@
 {
   "Rollback_Safety": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "↩️ Boot the new image once, prove health, then mark valid — otherwise fall back automatically."
     },

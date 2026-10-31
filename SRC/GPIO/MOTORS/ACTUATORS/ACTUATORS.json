@@ -1,6 +1,8 @@
 {
   "ACTUATORS": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🦾 Linear actuators and push-pull solenoid mechanics — doors, dampers, mutes, curtain drops."
     },

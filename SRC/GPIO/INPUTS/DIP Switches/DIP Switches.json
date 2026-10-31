@@ -1,6 +1,8 @@
 {
   "DIP_Switches": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🎚️ Cold-boot configuration you can set with a fingernail — node ID, mode, and address without a serial cable."
     },

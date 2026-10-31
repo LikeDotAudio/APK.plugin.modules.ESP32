@@ -1,6 +1,8 @@
 {
   "SERVO": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "📐 Hobby and industrial servos for pan, tilt, flap, and lever duty."
     },

@@ -1,6 +1,8 @@
 {
   "Accelerometer": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "📉 Vibration, tilt, and impact — catch a fan bearing going bad before it takes the amp with it."
     },

@@ -1,6 +1,8 @@
 {
   "Web_publish": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/webpage.cpp",
     "description": {
       "En": "🕸️ The node's own embedded HTTP page: live values, config form, and a reboot button. Zero install, works from a phone."

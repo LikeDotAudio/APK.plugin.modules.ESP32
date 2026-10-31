@@ -1,6 +1,8 @@
 {
   "GPIO": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🔌 Every physical pin the node can push, pull, read or blink. This is where the firmware stops being software and starts being voltage."
     },

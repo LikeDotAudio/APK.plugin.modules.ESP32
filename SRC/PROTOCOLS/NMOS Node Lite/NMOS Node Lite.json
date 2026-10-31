@@ -1,6 +1,8 @@
 {
   "NMOS_Node_Lite": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "implements": null,
     "description": {
       "En": "🎬 A minimal IS-04 node registration so broadcast controllers see this thing as a first-class device."

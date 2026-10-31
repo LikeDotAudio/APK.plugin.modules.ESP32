@@ -1,6 +1,8 @@
 {
   "Proximity": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "👋 Presence and distance — is someone at the rack, is the drawer closed, is the reel still loaded."
     },

@@ -1,6 +1,8 @@
 {
   "Seven_Segment": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🔢 Big numbers visible across the room; channel, level, or countdown."
     },

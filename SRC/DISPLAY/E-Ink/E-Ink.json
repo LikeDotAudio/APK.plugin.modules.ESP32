@@ -1,6 +1,8 @@
 {
   "E_Ink": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🏷️ Zero-power labels — rack tags that stay readable with the node unplugged."
     },

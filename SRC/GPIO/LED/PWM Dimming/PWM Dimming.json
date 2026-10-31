@@ -1,6 +1,8 @@
 {
   "PWM_Dimming": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🔆 Smooth 8–13 bit dimming curves for indicator and panel lamps, gamma corrected so fades look linear to the eye."
     },

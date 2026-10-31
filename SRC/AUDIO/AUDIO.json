@@ -1,6 +1,8 @@
 {
   "AUDIO": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🎧 The node as an actual audio device — capture, generate, measure."
     },

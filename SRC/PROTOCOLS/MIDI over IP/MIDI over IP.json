@@ -1,6 +1,8 @@
 {
   "MIDI_over_IP": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "implements": null,
     "description": {
       "En": "🎹 RTP-MIDI and USB-MIDI so the node appears as an instrument or controller."

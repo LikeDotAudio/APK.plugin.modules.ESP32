@@ -1,6 +1,8 @@
 {
   "Device_Manifest": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "📋 MAC, chip revision, firmware version, and the full capability list — published once at boot, retained forever."
     },

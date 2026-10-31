@@ -1,6 +1,8 @@
 {
   "Web_UI": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🪟 The browser as the node's screen — the same data, without the hardware."
     },

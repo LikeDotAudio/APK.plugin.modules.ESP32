@@ -1,6 +1,8 @@
 {
   "OTA": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🚀 Updating a fleet you cannot physically reach."
     },

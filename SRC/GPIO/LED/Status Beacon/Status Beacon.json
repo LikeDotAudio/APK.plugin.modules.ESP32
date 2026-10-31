@@ -1,6 +1,8 @@
 {
   "Status_Beacon": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🚨 The node's own mood ring: boot, wifi-hunting, broker-connected, fault. Readable without a laptop."
     },

@@ -1,6 +1,8 @@
 {
   "SPDIF": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "💿 Consumer digital I/O for gear that has no analog left."
     },

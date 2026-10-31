@@ -1,6 +1,8 @@
 {
   "ONE_WIRE": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🧵 Single-wire parasitically powered sensor chains — long runs, cheap probes."
     },

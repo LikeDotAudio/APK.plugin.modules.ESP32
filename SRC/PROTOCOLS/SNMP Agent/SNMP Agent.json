@@ -1,6 +1,8 @@
 {
   "SNMP_Agent": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "implements": null,
     "description": {
       "En": "📇 Answer the broadcast facility's existing NMS instead of asking it to learn a new one."

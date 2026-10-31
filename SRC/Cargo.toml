@@ -1,11 +1,15 @@
 [package]
 name = "apkaudio-plugin-modules-esp32"
-version = "0.1.0"
+version = "0.2.0"
 edition.workspace = true
+# Still a DISCOVERY.Engine member by this key. The standalone form (no
+# workspace key, reached through the engine's SRC/members/DATA.ESP32 link) is
+# fix/P06-data-standalone.patch, applied together with the engine's half.
 workspace = "../../../DISCOVERY.Engine/SRC"
 
 [dependencies]
-apkaudio-contracts = { path = "../../../NODE.BareMetal/SRC/contracts/rust" }
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
-tokio = { version = "1.36", features = ["full"] }
+# The one OcaBin reader, shared by DATA.ESP32/NETWORK/NTP/PI; it lives here.
+apkaudio-ocabin = { path = "ocabin" }
+
+[build-dependencies]
+apkaudio-ocabin = { path = "ocabin", default-features = false }

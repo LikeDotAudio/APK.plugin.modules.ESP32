@@ -1,6 +1,8 @@
 {
   "Light": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🔦 Ambient lux for auto-dimming panels and for proving the studio lights actually came up."
     },

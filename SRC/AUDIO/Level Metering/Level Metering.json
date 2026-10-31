@@ -1,6 +1,8 @@
 {
   "Level_Metering": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "📈 Peak, RMS, and true-peak over a window, published as numbers rather than pictures."
     },

@@ -1,6 +1,8 @@
 {
   "Rotary_Encoders": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🎠 Quadrature encoders with detent tracking and acceleration — endless knobs for parameter control."
     },

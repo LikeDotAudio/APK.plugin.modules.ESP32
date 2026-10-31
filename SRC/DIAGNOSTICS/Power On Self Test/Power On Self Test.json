@@ -1,6 +1,8 @@
 {
   "Power_On_Self_Test": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "✅ Probe every bus and peripheral at boot and publish a pass/fail map. Commissioning without a multimeter."
     },

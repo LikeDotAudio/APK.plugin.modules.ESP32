@@ -1,6 +1,8 @@
 {
   "Role_Profile": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🎭 What this node is FOR — fader bank, rack probe, tally driver. Role drives which subtrees are compiled in."
     },

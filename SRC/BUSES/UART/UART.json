@@ -1,6 +1,8 @@
 {
   "UART": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "📜 Plain serial to legacy gear, GPS heads, and the console itself."
     },

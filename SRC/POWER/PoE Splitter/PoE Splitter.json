@@ -1,6 +1,8 @@
 {
   "PoE_Splitter": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🕸️ One cable for data and power; the sane way to deploy dozens of nodes."
     },

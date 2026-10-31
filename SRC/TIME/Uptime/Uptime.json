@@ -1,6 +1,8 @@
 {
   "Uptime": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "📏 Boot count, uptime, and last-reset-reason — the cheapest health metric there is."
     },

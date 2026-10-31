@@ -1,6 +1,8 @@
 {
   "OUTPUTS": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "⚡ Switching the world outside 3.3 V logic."
     },

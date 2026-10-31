@@ -1,6 +1,8 @@
 {
   "PWM_LEDC": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🌊 The general-purpose pulse engine behind dimming, servos, and motor speed."
     },

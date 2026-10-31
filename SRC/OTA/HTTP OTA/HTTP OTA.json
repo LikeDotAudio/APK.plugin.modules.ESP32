@@ -1,6 +1,8 @@
 {
   "HTTP_OTA": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "📦 Pull a signed image from the PI host's firmware server and swap partitions."
     },

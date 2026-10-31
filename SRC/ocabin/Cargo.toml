@@ -1,0 +1,27 @@
+[package]
+name = "apkaudio-ocabin"
+version = "0.1.0"
+edition = "2021"
+description = "The one reader for the DATA.* OcaBin manifest trees (ESP32, NETWORK, NTP, PI): compiles a tree in at build time and holds every manifest to one shape."
+license = "MIT"
+
+# Lives in DATA.ESP32 (the largest tree, and already copied into every image
+# that builds the DISCOVERY.Engine workspace), so no image gains a COPY line.
+# DATA.ESP32 takes it by `path = "ocabin"` (inside its own repository); the
+# other three DATA crates take it from this repository by `rev` — see
+# DATA.ESP32 Documentation/🧩Manual and Artifacts/ARCHITECTURE.md.
+
+[features]
+default = ["reader"]
+# A crate's build.rs needs only `build::compile_manifests` (std only); it names
+# this crate with `default-features = false` so the host build does not compile
+# the contracts as well.
+reader = ["dep:serde_json", "dep:apkaudio-contracts"]
+
+[dependencies]
+serde_json = { version = "1.0", optional = true }
+# The BareMetal topic grammar every manifest topic is checked against. From the
+# SDK by tag, like the plugins; inside the monorepo the engine workspace's
+# [patch] (or the crate's locally generated .cargo/config.toml) resolves it to
+# the local contracts/rust.
+apkaudio-contracts = { git = "https://github.com/LikeDotAudio/APK.plugin.SDK", tag = "sdk-v0.5", optional = true }

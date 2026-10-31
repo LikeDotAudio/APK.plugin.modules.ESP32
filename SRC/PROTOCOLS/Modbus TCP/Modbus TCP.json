@@ -1,6 +1,8 @@
 {
   "Modbus_TCP": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "implements": null,
     "description": {
       "En": "🏭 Building management and industrial gear integration; registers mapped to node state."

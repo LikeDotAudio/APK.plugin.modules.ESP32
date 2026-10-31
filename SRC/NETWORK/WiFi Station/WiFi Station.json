@@ -1,6 +1,8 @@
 {
   "WiFi_Station": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "📡 Normal client mode with roaming, RSSI reporting, and exponential-backoff reconnect."
     },

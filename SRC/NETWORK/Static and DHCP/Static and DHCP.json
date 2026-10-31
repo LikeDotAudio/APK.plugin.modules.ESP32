@@ -1,6 +1,8 @@
 {
   "Static_and_DHCP": {
     "type": "OcaBin",
+    "schema_version": 1,
+    "status": "planned",
     "description": {
       "En": "🗺️ Address policy per node, because half of broadcast still runs on static plans and spreadsheets."
     },
