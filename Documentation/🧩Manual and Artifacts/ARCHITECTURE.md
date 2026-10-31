@@ -41,7 +41,7 @@ here adds no `COPY` line anywhere. No new repository (the owner's rule).
 | Crate | Takes `apkaudio-ocabin` by |
 |---|---|
 | DATA.ESP32 | `path = "ocabin"` — inside its own repository |
-| DATA.NETWORK | today `path = "../../DATA.ESP32/SRC/ocabin"` (an engine member, like ESP32); standalone form — `git = APK.plugin.modules.ESP32, rev = …` + the engine `[patch]` — in `fix/P06-data-standalone.patch`, applied with the engine's half |
+| DATA.NETWORK | `git = APK.plugin.modules.ESP32, rev = …`; inside the engine workspace its `[patch]` resolves it to `members/DATA.ESP32/ocabin` |
 | DATA.NTP, DATA.PI | `git = "https://github.com/LikeDotAudio/APK.plugin.modules.ESP32", rev = …` (own workspaces); a locally generated, git-excluded `SRC/.cargo/config.toml` patches it (and the SDK) to the local checkout, per `.apk.scripts/plugin_standalone.py` |
 
 A rule change: edit `SRC/ocabin`, commit, then bump the `rev` in DATA.NTP and
