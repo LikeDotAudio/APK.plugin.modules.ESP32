@@ -1,7 +1,7 @@
 //! The read half: [`Tree`] holds a compiled-in manifest tree to the shape the
 //! crate docs list, and binds concrete bus topics to the manifest that
 //! declares them.
-use apkaudio_contracts::topics::{baremetal, parse, ParsedTopic};
+use apkaudio_contracts::topics::{baremetal, parse};
 use serde_json::Value;
 
 /// The manifest shape this reader understands. A manifest carries it as
@@ -81,17 +81,29 @@ impl Tree {
 
     /// Is `topic` (placeholder filled in) a bareMetal topic of this tree's
     /// target by the contract's own parse?
+    ///
+    /// ANY bareMetal family counts, not a fixed list of variants: the
+    /// contract grows target-specific families (contracts 0.3: `ESP32/{node}/
+    /// identity/heartbeat` parses as `bareMetalEsp32Heartbeat { node }`), and a
+    /// reader that named variants would refuse each new one — or fail to
+    /// compile against an older SDK tag that lacks it. So the parse is read
+    /// through its own serde tag: `kind` must be a `bareMetal…` family, and
+    /// the target is the parse's `target` field when it carries one, else the
+    /// topic's place under the contract-built `BareMetal/<target>` root.
     pub fn in_contract(&self, topic: &str) -> Result<(), String> {
         let concrete = topic.replace(self.placeholder, "node");
-        match parse(&concrete) {
-            ParsedTopic::BareMetal { target, .. }
-            | ParsedTopic::BareMetalCommand { target, .. }
-            | ParsedTopic::BareMetalStream { target, .. }
-                if target == self.target =>
-            {
-                Ok(())
-            }
-            other => Err(format!("{topic} is not a declared bareMetal/{} topic (parsed as {other:?})", self.target)),
+        let parsed = parse(&concrete);
+        let doc = serde_json::to_value(&parsed).unwrap_or(Value::Null);
+        let kind = doc.get("kind").and_then(Value::as_str).unwrap_or("");
+        let head = baremetal(self.target, &[]).map_err(|e| format!("bareMetal target {}: {e:?}", self.target))?;
+        let ours = match doc.get("target").and_then(Value::as_str) {
+            Some(t) => t == self.target,
+            None => under(&concrete, &head),
+        };
+        if kind.starts_with("bareMetal") && ours {
+            Ok(())
+        } else {
+            Err(format!("{topic} is not a declared bareMetal/{} topic (parsed as {parsed:?})", self.target))
         }
     }
 
@@ -264,6 +276,20 @@ mod tests {
         for text in bad {
             assert!(t.read_one("X.json", text).is_err(), "accepted {text}");
         }
+    }
+
+    /// A topic the contract parses into a target-specific family (the ESP32
+    /// heartbeat, `bareMetalEsp32Heartbeat` from contracts 0.3) is in the
+    /// contract just like the generic `bareMetal` one; another target's is not.
+    #[test]
+    fn any_baremetal_family_of_the_target_counts() {
+        let t = tree(&GOOD, &[]);
+        assert!(t.in_contract("APK.audio/System/BareMetal/ESP32/{node}/identity/heartbeat").is_ok());
+        assert!(t.in_contract("APK.audio/System/BareMetal/ESP32/{node}/identity/heartbeat/uptime").is_ok());
+        assert!(t.in_contract("APK.audio/System/BareMetal/ESP32/{node}/gpio/sensors/hall").is_ok());
+        assert!(t.in_contract("APK.audio/System/BareMetal/PI/{node}/identity/heartbeat").is_err());
+        assert!(t.in_contract("APK.audio/System/BareMetal/ESP32_Beskar2d2/identity/heartbeat").is_err());
+        assert!(t.in_contract("APK.audio/Gui/Chat/Message").is_err());
     }
 
     #[test]
