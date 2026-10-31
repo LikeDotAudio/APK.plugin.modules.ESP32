@@ -2,13 +2,13 @@
 
 ← [Wiki home](../README.md)
 
-No image or service of its own. Because `SRC/Cargo.toml` is a member of the `DISCOVERY.Engine/SRC` workspace (`DISCOVERY.Engine/SRC/Cargo.toml` line 155), every image that builds that workspace copies `SRC/` in:
+No image or service of its own. Because `SRC/Cargo.toml` is a member of the `DISCOVERY.Engine/SRC` workspace (`DISCOVERY.Engine/SRC/Cargo.toml` line 174, as `members/DATA.ESP32`), every image that builds that workspace copies `SRC/` in:
 
 | Image | COPY |
 |---|---|
-| Discovery Engine | `DISCOVERY.Engine/Docker/Dockerfile` line 63 |
-| `node-baremetal:local` | `NODE.BareMetal/Docker/Dockerfile` line 75 |
-| Broker | `DATABUS.Broker.MQTT/Docker/Dockerfile` line 63 |
+| Discovery Engine | `DISCOVERY.Engine/Docker/Dockerfile` line 64 |
+| `node-baremetal:local` | `NODE.BareMetal/Docker/Dockerfile` line 92 |
+| `apkaudio-nmos-facade:local` | `PLUGIN.NMOS_CONTROL/Docker/Dockerfile.facade` line 49 |
 
 The crate compiles the JSON in and reads it (`build.rs`, `src/lib.rs`); no service in those images consumes it. The reader's check: `cd ../../DISCOVERY.Engine/SRC && cargo test -p apkaudio-plugin-modules-esp32` (every manifest + layout; `-p apkaudio-ocabin` for the shared reader's rules). `python3 .apk.scripts/smoke.py PODS/POD.THICK/DATA/DATA.ESP32` (root) checks the repo is pushed — [SMOKE.md](../%F0%9F%A7%A9Manual%20and%20Artifacts/SMOKE.md).
 
@@ -23,6 +23,7 @@ The crate compiles the JSON in and reads it (`build.rs`, `src/lib.rs`); no servi
 - **No hand-kept count** — `EXPECTED_FILES = 124` replaced by `Tree::check_layout` (root holds one manifest; every folder exactly one JSON named after it; no stray files). The README no longer pins a number. Manifests carry `schema_version: 1` (refused otherwise); crate bumped to 0.2.0.
 - **Standalone crate (relative-path coupling)** — no `workspace =`, `edition = "2024"` (8095c65, applied by W02 from this batch's patch); the engine reaches it through `SRC/members/DATA.ESP32` and patches `apkaudio-ocabin` to `members/DATA.ESP32/ocabin` (engine 464b00d). Verified: `cd PODS/POD.THICK/DISCOVERY.Engine/SRC && cargo test --locked -p apkaudio-ocabin -p apkaudio-plugin-modules-esp32 -p apkaudio-plugin-modules-network` (4 + 2 + 3 pass). Kept by design: the image COPYs of DATA.ESP32/SRC (engine membership).
 - **CC-02 manifest phase is not a liveness word** (from `check_state_words.py`) — the declared/served marker is `"phase": "planned" | "live"`, not `status` (that key is the bus liveness vocabulary of `contracts/tokens/state.json`); reader field `Module::phase` / enum `Phase`. Verified: `python3 .apk.scripts/check_state_words.py` → 0 findings.
-- **Pushed; siblings resolve the reader from GitHub** — Verified 2026-10-30: `git archive HEAD` of DATA.NTP, DATA.PI and DATA.NETWORK, extracted alone, `cargo test` resolves `apkaudio-ocabin` (DATA.ESP32 35cc7e5) and the contracts (sdk-v0.6) from GitHub and passes (2 / 2 / 3).
+- **Pushed; siblings resolve the reader from GitHub** — Verified 2026-10-30: `git archive HEAD` of DATA.NTP, DATA.PI and DATA.NETWORK, extracted alone, `cargo test` resolves `apkaudio-ocabin` (DATA.ESP32 35cc7e5) and the contracts (sdk-v0.6 at the time; since re-pinned to sdk-v0.7) from GitHub and passes (2 / 2 / 3).
 - **Firmware 0.3.0 modules live (esp32-v0.3.1)** — the nine modules `bus_topics.h` publishes are `phase: live` with `implemented_by` naming LikeDotAudio/APK.firmware.ESP32_Beskar2d2; every stale `implements` path (`APK:PODS/APK:BareMetal/SRC/firmware/…`, incl. `GPIO/Sensors/Voltage Current`) now reads `LikeDotAudio/APK.firmware.ESP32_Beskar2d2:<path>`, each checked to exist. Crate 0.3.1. Verified: `cd PODS/POD.THICK/DISCOVERY.Engine/SRC && cargo test -p apkaudio-plugin-modules-esp32 -p apkaudio-ocabin` (2 + 4 pass; the test pins exactly the nine as live) and, in the firmware repo, `APK_PARITY=1 python3 tools/check_bus_topics.py ../../../DATA/DATA.ESP32/SRC` → all 9 modules are manifest topics.
 - **Any bareMetal family of the target is in the contract (esp32-v0.3.2)** — contracts 0.3 parse `ESP32/{node}/identity/heartbeat` as `bareMetalEsp32Heartbeat { node }`; `Tree::in_contract` no longer names variants: it reads the parse through its serde tag (`kind` starts with `bareMetal`, and the parse's `target`, or else the topic's place under the contract-built `BareMetal/<target>` root, is this tree's), so new target families pass and an older SDK tag still compiles. New test `any_baremetal_family_of_the_target_counts`. ocabin 0.1.1, crate 0.3.2. Verified: engine workspace `cargo test -p apkaudio-ocabin -p apkaudio-plugin-modules-esp32 -p apkaudio-plugin-modules-network` (5 + 2 + 3, local contracts with the new family), DATA.NTP and DATA.PI `cargo test` from their folders (2 + 2), and ocabin alone against `sdk-v0.7` (5).
+- **SDK at `sdk-v0.7`** (3240bd1) — `SRC/ocabin` takes `apkaudio-contracts` by `tag = "sdk-v0.7"`, as do DATA.NETWORK, DATA.NTP and DATA.PI. Verified 2026-10-31: `cd PODS/POD.THICK/DISCOVERY.Engine/SRC && cargo test -p apkaudio-ocabin -p apkaudio-plugin-modules-esp32` (5 + 2 pass).

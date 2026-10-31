@@ -46,8 +46,8 @@ here adds no `COPY` line anywhere. No new repository (the owner's rule).
 
 A rule change: edit `SRC/ocabin`, commit, then bump the `rev` in DATA.NTP and
 DATA.PI (NETWORK follows the engine `[patch]`). The contracts come from the
-SDK by `tag = "sdk-v0.5"`; the NETWORK and NTP targets are in contracts 0.2.0,
-so a standalone build of those two trees' tests needs the next SDK tag.
+SDK by `tag = "sdk-v0.7"` (here and in all three siblings); that tag carries
+the NETWORK and NTP targets, so each tree's tests build standalone.
 
 ## A manifest
 
