@@ -3,7 +3,7 @@
     "type": "OcaBin",
     "schema_version": 1,
     "phase": "planned",
-    "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/webpage.cpp",
+    "implements": "LikeDotAudio/APK.firmware.ESP32_Beskar2d2:src/webpage.cpp",
     "description": {
       "En": "🧾 A small JSON API for scripted control and for the PI host to poll when MQTT is down."
     },

@@ -6,7 +6,7 @@
     "description": {
       "En": "🔱 Eight I²C branches behind one address, so eight identical sensors can share a bus without a fistfight."
     },
-    "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/TCA9548A.cpp",
+    "implements": "LikeDotAudio/APK.firmware.ESP32_Beskar2d2:src/TCA9548A.cpp",
     "behavior": {
       "overflow_ns": "auto"
     },

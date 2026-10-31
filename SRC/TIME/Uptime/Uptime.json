@@ -2,7 +2,8 @@
   "Uptime": {
     "type": "OcaBin",
     "schema_version": 1,
-    "phase": "planned",
+    "phase": "live",
+    "implemented_by": "LikeDotAudio/APK.firmware.ESP32_Beskar2d2 — firmware 0.3.0 publishes this module (lib/beskar_core/src/bus_topics.h BUS_MODULE_UPTIME; checked by tools/check_bus_topics.py)",
     "description": {
       "En": "📏 Boot count, uptime, and last-reset-reason — the cheapest health metric there is."
     },

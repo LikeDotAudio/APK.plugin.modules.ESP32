@@ -6,7 +6,7 @@
     "description": {
       "En": "📟 The 128×64 workhorse already driven by U8glib in the Beskar2d2 firmware."
     },
-    "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/drivers/driver_oled_display.cpp",
+    "implements": "LikeDotAudio/APK.firmware.ESP32_Beskar2d2:src/drivers/driver_oled_display.cpp",
     "behavior": {
       "overflow_ns": "auto"
     },

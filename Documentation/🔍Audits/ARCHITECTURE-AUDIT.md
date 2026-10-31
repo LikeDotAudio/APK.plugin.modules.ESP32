@@ -13,7 +13,7 @@ The ESP32 node description: what an ESP32 node can carry, by subsystem — 124 A
 | APK.plugin.SDK contracts | `SRC/ocabin` → `apkaudio-contracts` by SDK tag (`sdk-v0.7` at HEAD) (engine `[patch]` → local) | Conformist, by tag |
 | DISCOVERY.Engine / NODE.BareMetal / NMOS facade images | `COPY PODS/POD.THICK/DATA/DATA.ESP32/SRC` in their Dockerfiles | Supplier of files baked into others' images (by design: engine member) |
 | DATA.NETWORK / DATA.NTP / DATA.PI | depend on `apkaudio-ocabin` (`SRC/ocabin`) | Supplier — the one reader |
-| ESP32 firmware / live devices | manifest topic root `APK.audio/System/BareMetal/ESP32/{node}/…` | declared Published Language; every manifest `phase: planned` (no publisher yet) |
+| ESP32 firmware / live devices | manifest topic root `APK.audio/System/BareMetal/ESP32/{node}/…` | Published Language: nine modules live (firmware 0.3.0, parity-checked both ways), the rest `planned` |
 
 ## Scorecard
 | Category | Score (0–3) | Finding |

@@ -2,11 +2,12 @@
   "Proximity": {
     "type": "OcaBin",
     "schema_version": 1,
-    "phase": "planned",
+    "phase": "live",
+    "implemented_by": "LikeDotAudio/APK.firmware.ESP32_Beskar2d2 — firmware 0.3.0 publishes this module (lib/beskar_core/src/bus_topics.h BUS_MODULE_PROXIMITY; checked by tools/check_bus_topics.py)",
     "description": {
       "En": "👋 Presence and distance — is someone at the rack, is the drawer closed, is the reel still loaded."
     },
-    "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/sensors/sensor_proximity.cpp",
+    "implements": "LikeDotAudio/APK.firmware.ESP32_Beskar2d2:src/sensors/sensor_proximity.cpp",
     "behavior": {
       "overflow_ns": "auto"
     },

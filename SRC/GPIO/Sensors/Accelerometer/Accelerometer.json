@@ -2,11 +2,12 @@
   "Accelerometer": {
     "type": "OcaBin",
     "schema_version": 1,
-    "phase": "planned",
+    "phase": "live",
+    "implemented_by": "LikeDotAudio/APK.firmware.ESP32_Beskar2d2 — firmware 0.3.0 publishes this module (lib/beskar_core/src/bus_topics.h BUS_MODULE_ACCELEROMETER; checked by tools/check_bus_topics.py)",
     "description": {
       "En": "📉 Vibration, tilt, and impact — catch a fan bearing going bad before it takes the amp with it."
     },
-    "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/sensors/sensor_accelerometer.cpp",
+    "implements": "LikeDotAudio/APK.firmware.ESP32_Beskar2d2:src/sensors/sensor_accelerometer.cpp",
     "behavior": {
       "overflow_ns": "auto"
     },

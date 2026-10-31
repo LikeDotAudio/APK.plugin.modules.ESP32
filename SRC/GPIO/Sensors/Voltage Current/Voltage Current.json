@@ -2,11 +2,12 @@
   "Voltage_Current": {
     "type": "OcaBin",
     "schema_version": 1,
-    "phase": "planned",
+    "phase": "live",
+    "implemented_by": "LikeDotAudio/APK.firmware.ESP32_Beskar2d2 — firmware 0.3.0 publishes this module (lib/beskar_core/src/bus_topics.h BUS_MODULE_VOLTAGE_CURRENT; checked by tools/check_bus_topics.py)",
     "description": {
       "En": "🔋 Per-rail power truth. Amps drawn is the earliest honest indicator that hardware is unhappy."
     },
-    "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/sensors/sensor_voltage_Current.cpp",
+    "implements": "LikeDotAudio/APK.firmware.ESP32_Beskar2d2:src/sensors/sensor_voltage_Current.cpp",
     "behavior": {
       "overflow_ns": "auto"
     },

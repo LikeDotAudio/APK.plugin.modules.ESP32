@@ -2,11 +2,12 @@
   "BLDC": {
     "type": "OcaBin",
     "schema_version": 1,
-    "phase": "planned",
+    "phase": "live",
+    "implemented_by": "LikeDotAudio/APK.firmware.ESP32_Beskar2d2 — firmware 0.3.0 publishes this module (lib/beskar_core/src/bus_topics.h BUS_MODULE_BLDC; checked by tools/check_bus_topics.py)",
     "description": {
       "En": "🌀 Brushless drive with commutation and RPM telemetry — fans, blowers, spin rigs."
     },
-    "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/drivers/driver_bldc_motor.cpp",
+    "implements": "LikeDotAudio/APK.firmware.ESP32_Beskar2d2:src/drivers/driver_bldc_motor.cpp",
     "behavior": {
       "overflow_ns": "auto"
     },

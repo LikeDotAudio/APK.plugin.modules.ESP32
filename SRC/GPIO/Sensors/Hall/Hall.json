@@ -2,11 +2,12 @@
   "Hall": {
     "type": "OcaBin",
     "schema_version": 1,
-    "phase": "planned",
+    "phase": "live",
+    "implemented_by": "LikeDotAudio/APK.firmware.ESP32_Beskar2d2 — firmware 0.3.0 publishes this module (lib/beskar_core/src/bus_topics.h BUS_MODULE_HALL; checked by tools/check_bus_topics.py)",
     "description": {
       "En": "🧲 Magnetic position and rotation counting; contactless so nothing wears out."
     },
-    "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/sensors/sensor_Hall.cpp",
+    "implements": "LikeDotAudio/APK.firmware.ESP32_Beskar2d2:src/sensors/sensor_Hall.cpp",
     "behavior": {
       "overflow_ns": "auto"
     },

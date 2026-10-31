@@ -2,7 +2,8 @@
   "Heap_and_Task_Monitor": {
     "type": "OcaBin",
     "schema_version": 1,
-    "phase": "planned",
+    "phase": "live",
+    "implemented_by": "LikeDotAudio/APK.firmware.ESP32_Beskar2d2 — firmware 0.3.0 publishes this module (lib/beskar_core/src/bus_topics.h BUS_MODULE_HEAP; checked by tools/check_bus_topics.py)",
     "description": {
       "En": "🧠 Free heap, largest block, and stack high-water per task — leaks show up here first."
     },

@@ -30,6 +30,20 @@ pub fn read() -> Result<Vec<Module>, String> {
 mod tests {
     use super::*;
 
+    /// The modules firmware 0.3.0 publishes (its `BUS_MODULE_*`); the firmware's
+    /// `tools/check_bus_topics.py` holds the other side.
+    const FIRMWARE_LIVE: &[&str] = &[
+        "IDENTITY/Heartbeat/Heartbeat.json",
+        "GPIO/Sensors/Proximity/Proximity.json",
+        "GPIO/Sensors/Accelerometer/Accelerometer.json",
+        "GPIO/Sensors/Hall/Hall.json",
+        "GPIO/Sensors/Voltage Current/Voltage Current.json",
+        "GPIO/MOTORS/BLDC/BLDC.json",
+        "TIME/Uptime/Uptime.json",
+        "NETWORK/WiFi Station/WiFi Station.json",
+        "DIAGNOSTICS/Heap and Task Monitor/Heap and Task Monitor.json",
+    ];
+
     #[test]
     fn every_manifest_reads() {
         let all = read().unwrap();
@@ -37,10 +51,10 @@ mod tests {
         assert_eq!(topic_root(), "APK.audio/System/BareMetal/ESP32/{node}");
     }
 
-    /// What a node publishing a module's telemetry binds to. The firmware in
-    /// NODE.BareMetal speaks no MQTT yet, and the only ESP32 topic on the bus
-    /// today is mqtt_agent.py's --demo `BareMetal/ESP32_Beskar2d2` — a separate
-    /// single-device target, deliberately not this node tree.
+    /// What a node publishing a module's telemetry binds to. Firmware 0.3.0
+    /// (LikeDotAudio/APK.firmware.ESP32_Beskar2d2, `bus_topics.h`) publishes
+    /// nine modules; `mqtt_agent.py --demo`'s `BareMetal/ESP32_Beskar2d2` is a
+    /// separate single-device target, deliberately not this node tree.
     #[test]
     fn a_node_announcement_binds_to_its_manifest() {
         let all = read().unwrap();
@@ -48,6 +62,12 @@ mod tests {
         let sample = format!("{}/uptime", heartbeat.topic.replace(NODE_PLACEHOLDER, "beskar2d2"));
         assert_eq!(TREE.bind(&all, &sample).unwrap().path, heartbeat.path);
         assert!(TREE.bind(&all, "APK.audio/System/BareMetal/ESP32_Beskar2d2/telemetry").is_none());
-        assert!(all.iter().all(|m| m.phase == Phase::Planned), "a module went live: name its implemented_by");
+        let live: Vec<&str> = all.iter().filter(|m| m.phase == Phase::Live).map(|m| m.path).collect();
+        assert_eq!(live.len(), FIRMWARE_LIVE.len(), "live modules: {live:?}");
+        for path in FIRMWARE_LIVE {
+            let m = all.iter().find(|m| m.path == *path).unwrap();
+            assert_eq!(m.phase, Phase::Live, "{path}");
+            assert!(m.implemented_by.as_deref().unwrap().starts_with("LikeDotAudio/APK.firmware.ESP32_Beskar2d2"), "{path}");
+        }
     }
 }

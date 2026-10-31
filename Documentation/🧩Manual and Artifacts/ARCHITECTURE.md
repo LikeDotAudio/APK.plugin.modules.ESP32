@@ -59,16 +59,16 @@ so a standalone build of those two trees' tests needs the next SDK tag.
 ## Topics, and who publishes them
 
 Every module topic sits under `APK.audio/System/BareMetal/ESP32/{node}` (the
-contract's `ESP32` bareMetal target). **Nothing publishes it yet**: the
-firmware in `NODE.BareMetal/FIRMWARE/ESP32_Beskar2d2` has no MQTT client, and
-the only ESP32-looking topic on the bus is `DATABUS.agent.MQTT/mqtt_agent.py
---demo`'s synthetic `BareMetal/ESP32_Beskar2d2` — a separate single-device
-target in the contract (no node segment), deliberately not this tree. So every
-manifest says `"phase": "planned"`; the test
-`a_node_announcement_binds_to_its_manifest` pins how a node's topic binds
-(`TREE.bind`) and fails the day a module is marked live without naming its
-`implemented_by`. When the firmware gains MQTT it publishes under
-`ESP32/{node}/<domain>/<module>`.
+contract's `ESP32` bareMetal target). **Firmware 0.3.0**
+(`LikeDotAudio/APK.firmware.ESP32_Beskar2d2`, `NODE.BareMetal/FIRMWARE/ESP32_Beskar2d2`) publishes nine
+modules — IDENTITY/Heartbeat, GPIO/Sensors/{Proximity, Accelerometer, Hall, Voltage Current}, GPIO/MOTORS/BLDC, TIME/Uptime, NETWORK/WiFi Station, DIAGNOSTICS/Heap and Task Monitor — one `BUS_MODULE_*` each in `lib/beskar_core/src/bus_topics.h`. Those nine say
+`"phase": "live"` with `implemented_by` naming the firmware repo; every other manifest stays `planned`.
+Both sides are checked: this crate's test `a_node_announcement_binds_to_its_manifest` pins exactly those
+nine as live, and the firmware's `APK_PARITY=1 tools/check_bus_topics.py <DATA.ESP32/SRC>` refuses a
+`BUS_MODULE_*` no manifest declares. `mqtt_agent.py --demo`'s synthetic `BareMetal/ESP32_Beskar2d2` is a
+separate single-device target in the contract, deliberately not this tree. `implements` names the firmware
+source file as `LikeDotAudio/APK.firmware.ESP32_Beskar2d2:<path>` (the old `APK:PODS/APK:BareMetal/SRC/firmware/…`
+paths no longer existed).
 
 ## Use
 
