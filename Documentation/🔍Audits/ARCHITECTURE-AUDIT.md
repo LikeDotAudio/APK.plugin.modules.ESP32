@@ -22,9 +22,8 @@ The ESP32 node description: what an ESP32 node can carry, by subsystem — 124 A
 | Boundary Integrity | 3 | Declarative published shape (OcaBin, `schema_version`, `phase`), every topic checked against the contract's grammar; the manifests say they are not implemented yet. |
 | Duplication Control | 3 | Hosts the one reader (`apkaudio-ocabin`) all four DATA trees use. |
 | Testing & Contracts | 3 | Reader rules tested once in `ocabin`; the tree's test binds a node topic to its manifest and refuses an unclaimed `live`. |
-| Change management | 2 | Crate 0.2.0, manifest `schema_version: 1`, no hand-kept counts. No tags yet (needs owner). |
+| Change management | 3 | Released as `esp32-v0.2.0` (crate 0.2.0); manifests carry `schema_version: 1`; no hand-kept counts. |
 Score key: 3 meets the standard · 2 minor gaps · 1 significant gaps · 0 absent / violated.
 
 ## Findings
 1. **Good — reader-first, compiled-in data.** `build.rs` (→ `apkaudio_ocabin::build::compile_manifests`) compiles every `SRC/**/*.json` with `include_str!`; `Tree::read_one` refuses a manifest that is not one `OcaBin` named after its file, lacks `schema_version`/`phase`, has no `Identity.topic` under the contract-built root or in the contract's grammar, or a widget topic outside its module; `read()` refuses shared topics and a bad layout.
-2. **Waiting on a tag.** Pushed (35cc7e5, SDK sdk-v0.6); siblings pin `apkaudio-ocabin` at that rev and resolve it from GitHub. A release tag (`esp32-v0.2.0`) is requested from the coordinator.
