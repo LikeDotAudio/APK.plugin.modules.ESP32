@@ -21,7 +21,7 @@
 //! - one top-level key, an `OcaBin`, named after its file (spaces, dashes,
 //!   dots and colons fold to `_`, case ignored);
 //! - `schema_version` is [`SCHEMA_VERSION`];
-//! - `status` is `"planned"` (declared, nothing serves it yet) or `"live"`
+//! - `phase` is `"planned"` (declared, nothing serves it yet) or `"live"`
 //!   (something publishes it), and a live one names its publisher in
 //!   `implemented_by`;
 //! - `blocks.Identity.fields.topic.lbl` is its bus topic, under the tree's

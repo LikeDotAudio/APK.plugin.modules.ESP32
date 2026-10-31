@@ -2,7 +2,7 @@
   "Flash_Encryption": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🧊 Credentials and calibration unreadable from a desoldered chip."
     },

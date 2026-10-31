@@ -2,7 +2,7 @@
   "Serial_Console": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "⌨️ An interactive shell over UART for the moments the network is the problem."
     },

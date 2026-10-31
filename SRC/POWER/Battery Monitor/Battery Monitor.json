@@ -2,7 +2,7 @@
   "Battery_Monitor": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🪫 State of charge and discharge slope for portable and UPS-backed nodes."
     },

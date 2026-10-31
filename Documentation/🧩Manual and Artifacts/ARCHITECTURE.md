@@ -31,7 +31,7 @@ two constants apart. Now there is one reader, hosted here:
   `check_layout()`, `topic_root()` (built from `apkaudio_contracts::topics::
   baremetal(target, [])`), `in_contract()` (the contract's `parse`), and
   `bind(modules, topic)` — the manifest a concrete bus topic belongs to.
-- Manifest shape v1 (`SCHEMA_VERSION`): `schema_version: 1`, `status:
+- Manifest shape v1 (`SCHEMA_VERSION`): `schema_version: 1`, `phase:
   "planned" | "live"`, `implemented_by` when live.
 
 **Why here, and how the siblings take it.** DATA.ESP32 is already copied into
@@ -51,7 +51,7 @@ so a standalone build of those two trees' tests needs the next SDK tag.
 
 ## A manifest
 
-`{ "<Module_Name>": { "type": "OcaBin", "schema_version": 1, "status": "planned", "description": {"En": …}, "blocks": { … } } }` with blocks:
+`{ "<Module_Name>": { "type": "OcaBin", "schema_version": 1, "phase": "planned", "description": {"En": …}, "blocks": { … } } }` with blocks:
 
 - **Identity** — `identity`, `purpose` (`_Label`, `OcaStringSensor`), `interface` (the physical part, e.g. `I²S RX, ES8388 / PCM1808`) and `topic` (`APK.audio/System/BareMetal/ESP32/{node}/<domain>/<module>`).
 - **Control** / **Telemetry** — widgets (`_SmartToggle`, `_ValueBox`, …), each with the topic it reads or writes and its AES70 class.
@@ -64,7 +64,7 @@ firmware in `NODE.BareMetal/FIRMWARE/ESP32_Beskar2d2` has no MQTT client, and
 the only ESP32-looking topic on the bus is `DATABUS.agent.MQTT/mqtt_agent.py
 --demo`'s synthetic `BareMetal/ESP32_Beskar2d2` — a separate single-device
 target in the contract (no node segment), deliberately not this tree. So every
-manifest says `"status": "planned"`; the test
+manifest says `"phase": "planned"`; the test
 `a_node_announcement_binds_to_its_manifest` pins how a node's topic binds
 (`TREE.bind`) and fails the day a module is marked live without naming its
 `implemented_by`. When the firmware gains MQTT it publishes under

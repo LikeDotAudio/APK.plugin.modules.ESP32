@@ -2,7 +2,7 @@
   "DISPLAY": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🖥️ Local truth at the rack, for the times nobody has a browser open."
     },

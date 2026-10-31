@@ -2,7 +2,7 @@
   "SNTP_Client": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🕰️ Wall-clock sync from the PI host, good to tens of milliseconds."
     },

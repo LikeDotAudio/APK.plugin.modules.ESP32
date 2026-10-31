@@ -2,7 +2,7 @@
   "MQTT_TRANSMIT": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "implements": null,
     "description": {
       "En": "📤 Outbound telemetry, status, and heartbeat — retained where it represents current state."

@@ -6,7 +6,7 @@
 
 include!(concat!(env!("OUT_DIR"), "/manifests.rs"));
 
-pub use apkaudio_ocabin::{Module, Status, Tree, SCHEMA_VERSION};
+pub use apkaudio_ocabin::{Module, Phase, Tree, SCHEMA_VERSION};
 
 /// The contract's BareMetal target this tree publishes under.
 pub const TARGET: &str = "ESP32";
@@ -48,6 +48,6 @@ mod tests {
         let sample = format!("{}/uptime", heartbeat.topic.replace(NODE_PLACEHOLDER, "beskar2d2"));
         assert_eq!(TREE.bind(&all, &sample).unwrap().path, heartbeat.path);
         assert!(TREE.bind(&all, "APK.audio/System/BareMetal/ESP32_Beskar2d2/telemetry").is_none());
-        assert!(all.iter().all(|m| m.status == Status::Planned), "a module went live: name its implemented_by");
+        assert!(all.iter().all(|m| m.phase == Phase::Planned), "a module went live: name its implemented_by");
     }
 }

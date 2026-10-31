@@ -2,7 +2,7 @@
   "CoAP": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "implements": null,
     "description": {
       "En": "🪶 Constrained REST over UDP for battery nodes that cannot afford a TCP handshake."

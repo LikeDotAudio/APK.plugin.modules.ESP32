@@ -2,7 +2,7 @@
   "Sensors": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🌡️ The node's senses. Everything here becomes a timestamped MQTT fact."
     },

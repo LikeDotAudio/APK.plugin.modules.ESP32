@@ -2,7 +2,7 @@
   "ADC": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "📊 Analog capture: faders, pots, thermistors, and level sense — with calibration to fight the ESP32's nonlinear ADC."
     },

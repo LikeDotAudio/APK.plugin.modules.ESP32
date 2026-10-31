@@ -2,7 +2,7 @@
   "PROTOCOLS": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🌐 How the node talks to the rest of the plant. Everything below is a dialect of \"state, published\"."
     },

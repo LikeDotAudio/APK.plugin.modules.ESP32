@@ -2,7 +2,7 @@
   "Link_Watchdog": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🐕 Detects a half-open connection — associated but useless — and forces a clean reconnect."
     },

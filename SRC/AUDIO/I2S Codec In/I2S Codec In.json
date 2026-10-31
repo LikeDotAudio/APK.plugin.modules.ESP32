@@ -2,7 +2,7 @@
   "I2S_Codec_In": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🎙️ Line and mic capture through an external codec; the entry point for real measurement."
     },

@@ -2,7 +2,7 @@
   "MQTT_Triggered_OTA": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "📣 Host publishes a version and URL; the node decides whether it applies to its role."
     },

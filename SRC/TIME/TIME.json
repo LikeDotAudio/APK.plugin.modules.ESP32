@@ -2,7 +2,7 @@
   "TIME": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "⏰ Timestamps that survive comparison across nodes. Without shared time, telemetry is anecdote."
     },

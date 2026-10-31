@@ -2,7 +2,7 @@
   "I2C": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🔗 Two wires, dozens of devices. The workhorse for sensors, expanders, and displays."
     },

@@ -2,7 +2,7 @@
   "Scheduler": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "📅 On-node cron: sample this every 5 s, publish that on the minute, run self-test at 03:00."
     },

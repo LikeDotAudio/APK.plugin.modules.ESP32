@@ -2,7 +2,7 @@
   "OLED_SSD1306": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "📟 The 128×64 workhorse already driven by U8glib in the Beskar2d2 firmware."
     },

@@ -2,7 +2,7 @@
   "NETWORK": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "📶 Getting on the wire and staying there."
     },

@@ -2,7 +2,7 @@
   "BUSES": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🚌 The silicon-level transports every peripheral above rides on. Own the bus, own the node."
     },

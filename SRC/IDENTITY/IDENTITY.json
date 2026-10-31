@@ -2,7 +2,7 @@
   "IDENTITY": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🪪 Who this node is, in a fleet where every node is the same board."
     },

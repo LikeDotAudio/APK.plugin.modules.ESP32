@@ -2,7 +2,7 @@
   "Crash_Dump": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "💥 Panic handler that stores the backtrace to flash and publishes it after the next boot."
     },

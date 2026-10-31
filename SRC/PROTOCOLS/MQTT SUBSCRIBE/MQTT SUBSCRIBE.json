@@ -2,7 +2,7 @@
   "MQTT_SUBSCRIBE": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "implements": null,
     "description": {
       "En": "📥 Inbound commands and config. The node listens on its own control topic and nowhere else."

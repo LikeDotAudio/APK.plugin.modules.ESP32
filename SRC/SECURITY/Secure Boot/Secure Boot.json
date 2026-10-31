@@ -2,7 +2,7 @@
   "Secure_Boot": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🛡️ Only signed firmware runs, so a flashed image cannot be swapped in the field."
     },

@@ -2,7 +2,7 @@
   "mDNS_Discovery": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "implements": null,
     "description": {
       "En": "🔍 Advertises `_apkaudio._tcp` so APK.audio's scanner finds the node with no config at all."

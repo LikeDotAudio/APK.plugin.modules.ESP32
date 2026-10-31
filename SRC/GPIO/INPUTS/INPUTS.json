@@ -2,7 +2,7 @@
   "INPUTS": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🎛️ Human intent, digitised. Debounced, deglitched, and published."
     },

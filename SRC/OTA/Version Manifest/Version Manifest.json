@@ -2,7 +2,7 @@
   "Version_Manifest": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🏷️ Firmware version, build hash, and feature flags published at boot so the fleet is auditable."
     },

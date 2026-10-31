@@ -2,7 +2,7 @@
   "WebSocket": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "implements": null,
     "description": {
       "En": "⚡ Push telemetry to a browser at frame rate without polling — meters and faders need this."

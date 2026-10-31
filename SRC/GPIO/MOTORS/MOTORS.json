@@ -2,7 +2,7 @@
   "MOTORS": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "⚙️ Anything that turns, slides, or shoves. Motion is the loudest kind of output."
     },

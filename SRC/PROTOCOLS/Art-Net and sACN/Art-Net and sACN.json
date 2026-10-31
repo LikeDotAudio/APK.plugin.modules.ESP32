@@ -2,7 +2,7 @@
   "Art_Net_and_sACN": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "implements": null,
     "description": {
       "En": "🎭 Lighting-world control — take DMX universes in, drive NeoPixels out, or emit fixtures."

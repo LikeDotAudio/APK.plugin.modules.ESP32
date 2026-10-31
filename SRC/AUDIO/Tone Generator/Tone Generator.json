@@ -2,7 +2,7 @@
   "Tone_Generator": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🎼 Sine, sweep, pink and white noise on demand — a signal generator that costs six dollars and lives in the rack."
     },

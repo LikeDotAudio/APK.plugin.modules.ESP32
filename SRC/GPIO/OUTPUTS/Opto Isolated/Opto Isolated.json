@@ -2,7 +2,7 @@
   "Opto_Isolated": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🛡️ Galvanic isolation between the node and anything that has its own ground reference and opinions."
     },

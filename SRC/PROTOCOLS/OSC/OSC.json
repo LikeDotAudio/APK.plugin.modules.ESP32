@@ -2,7 +2,7 @@
   "OSC": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "implements": null,
     "description": {
       "En": "🎯 Open Sound Control for show control desks and DAWs that already speak it."

@@ -2,7 +2,7 @@
   "Voltage_Current": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🔋 Per-rail power truth. Amps drawn is the earliest honest indicator that hardware is unhappy."
     },

@@ -2,7 +2,7 @@
   "Wake_Sources": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "⏲️ Timer, GPIO, touch, and ULP-triggered wake — sleep until something is actually worth reporting."
     },

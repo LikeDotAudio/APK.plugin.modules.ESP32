@@ -2,7 +2,7 @@
   "ESP_NOW_Mesh": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "implements": null,
     "description": {
       "En": "🕷️ Broker-free peer-to-peer between nodes — works with no AP, no DHCP, no infrastructure. The survival protocol."

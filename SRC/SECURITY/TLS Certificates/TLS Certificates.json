@@ -2,7 +2,7 @@
   "TLS_Certificates": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "📜 CA-pinned TLS to the broker; no plaintext credentials on the wire."
     },

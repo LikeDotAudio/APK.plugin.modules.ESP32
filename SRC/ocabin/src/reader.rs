@@ -11,7 +11,7 @@ pub const SCHEMA_VERSION: u64 = 1;
 
 /// Is anything on the bus serving this manifest yet?
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum Status {
+pub enum Phase {
     /// Declared ("describe before you build"); nothing publishes it.
     Planned,
     /// Published today, by the `implemented_by` the manifest names.
@@ -33,8 +33,8 @@ pub struct Module {
     pub blocks: Vec<String>,
     /// Widget topics declared in the blocks.
     pub widget_topics: usize,
-    /// `status`.
-    pub status: Status,
+    /// `phase` (not `status`: that key is the bus liveness vocabulary, contracts/tokens/state.json).
+    pub phase: Phase,
     /// `implemented_by` — who publishes it (required when live).
     pub implemented_by: Option<String>,
 }
@@ -116,11 +116,11 @@ impl Tree {
             other => return Err(format!("{path}: schema_version {other:?}, this reader reads {SCHEMA_VERSION}")),
         }
         let implemented_by = bin.get("implemented_by").and_then(Value::as_str).map(str::to_owned);
-        let status = match (bin.get("status").and_then(Value::as_str), &implemented_by) {
-            (Some("planned"), _) => Status::Planned,
-            (Some("live"), Some(by)) if !by.trim().is_empty() => Status::Live,
-            (Some("live"), _) => return Err(format!("{path}: status live but no implemented_by")),
-            (other, _) => return Err(format!("{path}: status {other:?}, want \"planned\" or \"live\"")),
+        let phase = match (bin.get("phase").and_then(Value::as_str), &implemented_by) {
+            (Some("planned"), _) => Phase::Planned,
+            (Some("live"), Some(by)) if !by.trim().is_empty() => Phase::Live,
+            (Some("live"), _) => return Err(format!("{path}: phase live but no implemented_by")),
+            (other, _) => return Err(format!("{path}: phase {other:?}, want \"planned\" or \"live\"")),
         };
         let blocks = bin.get("blocks").and_then(Value::as_object).ok_or_else(|| format!("{path}: no blocks"))?;
         let identity = blocks.get("Identity").ok_or_else(|| format!("{path}: no Identity block"))?;
@@ -149,7 +149,7 @@ impl Tree {
             topic: topic.to_owned(),
             blocks: blocks.keys().cloned().collect(),
             widget_topics,
-            status,
+            phase,
             implemented_by,
         })
     }
@@ -218,8 +218,8 @@ impl Tree {
 mod tests {
     use super::*;
 
-    const ROOT: &str = r#"{"X":{"type":"OcaBin","schema_version":1,"status":"planned","blocks":{"Identity":{"fields":{"topic":{"lbl":"APK.audio/System/BareMetal/ESP32/{node}"}}}}}}"#;
-    const MOD: &str = r#"{"M":{"type":"OcaBin","schema_version":1,"status":"live","implemented_by":"a test","blocks":{"Identity":{"fields":{"topic":{"lbl":"APK.audio/System/BareMetal/ESP32/{node}/D/M"}}},"Telemetry":{"fields":{"v":{"topic":"APK.audio/System/BareMetal/ESP32/{node}/D/M/v"}}}}}}"#;
+    const ROOT: &str = r#"{"X":{"type":"OcaBin","schema_version":1,"phase":"planned","blocks":{"Identity":{"fields":{"topic":{"lbl":"APK.audio/System/BareMetal/ESP32/{node}"}}}}}}"#;
+    const MOD: &str = r#"{"M":{"type":"OcaBin","schema_version":1,"phase":"live","implemented_by":"a test","blocks":{"Identity":{"fields":{"topic":{"lbl":"APK.audio/System/BareMetal/ESP32/{node}/D/M"}}},"Telemetry":{"fields":{"v":{"topic":"APK.audio/System/BareMetal/ESP32/{node}/D/M/v"}}}}}}"#;
 
     fn tree(manifests: &'static [(&'static str, &'static str)], folders: &'static [&'static str]) -> Tree {
         Tree { target: "ESP32", placeholder: "{node}", manifests, folders, strays: &[] }
@@ -232,7 +232,7 @@ mod tests {
         let t = tree(&GOOD, &["D/M"]);
         let all = t.read().unwrap();
         assert_eq!(all.len(), 2);
-        assert_eq!(all[1].status, Status::Live);
+        assert_eq!(all[1].phase, Phase::Live);
         assert_eq!(all[1].widget_topics, 1);
         let m = t.bind(&all, "APK.audio/System/BareMetal/ESP32/beskar/D/M/v").unwrap();
         assert_eq!(m.key, "M");
@@ -251,15 +251,15 @@ mod tests {
     fn a_broken_manifest_is_refused() {
         let t = tree(&GOOD, &[]);
         let bad = [
-            r#"{"Y":{"type":"OcaBin","schema_version":1,"status":"planned","blocks":{}}}"#, // key does not name the file
-            r#"{"X":{"type":"OcaBlock","schema_version":1,"status":"planned","blocks":{}}}"#, // not an OcaBin
-            r#"{"X":{"type":"OcaBin","status":"planned","blocks":{"Identity":{"fields":{"topic":{"lbl":"APK.audio/System/BareMetal/ESP32/{node}"}}}}}}"#, // no schema_version
-            r#"{"X":{"type":"OcaBin","schema_version":2,"status":"planned","blocks":{"Identity":{"fields":{"topic":{"lbl":"APK.audio/System/BareMetal/ESP32/{node}"}}}}}}"#, // newer shape
-            r#"{"X":{"type":"OcaBin","schema_version":1,"status":"live","blocks":{"Identity":{"fields":{"topic":{"lbl":"APK.audio/System/BareMetal/ESP32/{node}"}}}}}}"#, // live, no publisher
-            r#"{"X":{"type":"OcaBin","schema_version":1,"blocks":{"Identity":{"fields":{"topic":{"lbl":"APK.audio/System/BareMetal/ESP32/{node}"}}}}}}"#, // no status
-            r#"{"X":{"type":"OcaBin","schema_version":1,"status":"planned","blocks":{"Identity":{"fields":{"topic":{"lbl":"elsewhere/x"}}}}}}"#, // off the root
-            r#"{"X":{"type":"OcaBin","schema_version":1,"status":"planned","blocks":{"Identity":{"fields":{"topic":{"lbl":"APK.audio/System/BareMetal/ESP32/{node}x"}}}}}}"#, // a prefix, not a parent
-            r#"{"X":{"type":"OcaBin","schema_version":1,"status":"planned","blocks":{"Identity":{"fields":{"topic":{"lbl":"APK.audio/System/BareMetal/ESP32/{node}/a b"}}}}}}"#, // not a contract segment
+            r#"{"Y":{"type":"OcaBin","schema_version":1,"phase":"planned","blocks":{}}}"#, // key does not name the file
+            r#"{"X":{"type":"OcaBlock","schema_version":1,"phase":"planned","blocks":{}}}"#, // not an OcaBin
+            r#"{"X":{"type":"OcaBin","phase":"planned","blocks":{"Identity":{"fields":{"topic":{"lbl":"APK.audio/System/BareMetal/ESP32/{node}"}}}}}}"#, // no schema_version
+            r#"{"X":{"type":"OcaBin","schema_version":2,"phase":"planned","blocks":{"Identity":{"fields":{"topic":{"lbl":"APK.audio/System/BareMetal/ESP32/{node}"}}}}}}"#, // newer shape
+            r#"{"X":{"type":"OcaBin","schema_version":1,"phase":"live","blocks":{"Identity":{"fields":{"topic":{"lbl":"APK.audio/System/BareMetal/ESP32/{node}"}}}}}}"#, // live, no publisher
+            r#"{"X":{"type":"OcaBin","schema_version":1,"blocks":{"Identity":{"fields":{"topic":{"lbl":"APK.audio/System/BareMetal/ESP32/{node}"}}}}}}"#, // no phase
+            r#"{"X":{"type":"OcaBin","schema_version":1,"phase":"planned","blocks":{"Identity":{"fields":{"topic":{"lbl":"elsewhere/x"}}}}}}"#, // off the root
+            r#"{"X":{"type":"OcaBin","schema_version":1,"phase":"planned","blocks":{"Identity":{"fields":{"topic":{"lbl":"APK.audio/System/BareMetal/ESP32/{node}x"}}}}}}"#, // a prefix, not a parent
+            r#"{"X":{"type":"OcaBin","schema_version":1,"phase":"planned","blocks":{"Identity":{"fields":{"topic":{"lbl":"APK.audio/System/BareMetal/ESP32/{node}/a b"}}}}}}"#, // not a contract segment
         ];
         for text in bad {
             assert!(t.read_one("X.json", text).is_err(), "accepted {text}");

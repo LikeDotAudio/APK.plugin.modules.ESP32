@@ -2,7 +2,7 @@
   "Silence_Detect": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🤫 Dead-air alarm with configurable threshold and hold. The single most requested feature in any plant."
     },

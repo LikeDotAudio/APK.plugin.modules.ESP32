@@ -2,7 +2,7 @@
   "Provisioning_Portal": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🧭 First-boot captive portal: pick SSID, enter broker, name the node, reboot. No hardcoded credentials, ever."
     },

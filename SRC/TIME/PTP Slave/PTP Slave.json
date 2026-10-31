@@ -2,7 +2,7 @@
   "PTP_Slave": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🎯 Sub-microsecond alignment to the plant's PTP domain — the same clock AES67 and ST 2110 ride on."
     },

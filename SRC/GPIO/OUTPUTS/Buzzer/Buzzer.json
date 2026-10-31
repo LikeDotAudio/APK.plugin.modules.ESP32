@@ -2,7 +2,7 @@
   "Buzzer": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🔔 Piezo alerts for the times a blinking LED is not enough."
     },

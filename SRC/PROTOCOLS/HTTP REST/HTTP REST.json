@@ -2,7 +2,7 @@
   "HTTP_REST": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "implements": "APK:PODS/APK:BareMetal/SRC/firmware/ESP32_Beskar2d2/src/webpage.cpp",
     "description": {
       "En": "🧾 A small JSON API for scripted control and for the PI host to poll when MQTT is down."

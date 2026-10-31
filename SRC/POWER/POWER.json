@@ -2,7 +2,7 @@
   "POWER": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🔌 Energy budget and graceful behaviour when it runs out."
     },

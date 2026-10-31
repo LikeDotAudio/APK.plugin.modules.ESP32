@@ -2,7 +2,7 @@
   "Syslog": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "implements": null,
     "description": {
       "En": "📝 Ship logs off-node to the PI host so a crash leaves evidence behind."

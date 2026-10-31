@@ -2,7 +2,7 @@
   "Hall": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🧲 Magnetic position and rotation counting; contactless so nothing wears out."
     },

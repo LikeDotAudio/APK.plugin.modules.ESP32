@@ -2,7 +2,7 @@
   "LED": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "💡 Light as a status protocol — if a human can see it from across the rack, it is a debugging tool."
     },

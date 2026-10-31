@@ -2,7 +2,7 @@
   "Temperature_Humidity": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🌦️ Rack and room climate. Slow-moving data that predicts fast-moving failures."
     },

@@ -2,7 +2,7 @@
   "NVS_Key_Value": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🗄️ Credentials, calibration constants, and node identity in wear-levelled flash."
     },

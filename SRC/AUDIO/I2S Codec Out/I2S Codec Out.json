@@ -2,7 +2,7 @@
   "I2S_Codec_Out": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🔉 Playback and test-tone injection into the plant."
     },

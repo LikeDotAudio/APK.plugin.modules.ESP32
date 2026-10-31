@@ -2,7 +2,7 @@
   "Door_Contact": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🚪 Reed switches on racks, cabinets, and booths. Physical access as a logged event."
     },

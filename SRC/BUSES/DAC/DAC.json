@@ -2,7 +2,7 @@
   "DAC": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "〰️ True analog out for control voltage and simple tone."
     },

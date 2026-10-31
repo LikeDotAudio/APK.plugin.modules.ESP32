@@ -2,7 +2,7 @@
   "Heartbeat": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "💓 Periodic liveness with an MQTT Last Will, so a dead node announces its own death."
     },

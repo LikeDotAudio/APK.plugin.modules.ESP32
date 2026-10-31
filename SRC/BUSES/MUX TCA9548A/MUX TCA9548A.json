@@ -2,7 +2,7 @@
   "MUX_TCA9548A": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🔱 Eight I²C branches behind one address, so eight identical sensors can share a bus without a fistfight."
     },

@@ -2,7 +2,7 @@
   "TFT_Colour": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🎨 Colour panels for meters, spectra, and anything that needs more than two shades."
     },

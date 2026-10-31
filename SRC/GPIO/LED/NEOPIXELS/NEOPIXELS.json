@@ -2,7 +2,7 @@
   "NEOPIXELS": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🌈 Addressable WS2812/SK6812 strips driven off the RMT peripheral. One pixel per channel, per fader, per alarm — colour is data."
     },

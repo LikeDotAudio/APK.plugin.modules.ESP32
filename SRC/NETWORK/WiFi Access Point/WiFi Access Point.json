@@ -2,7 +2,7 @@
   "WiFi_Access_Point": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🏝️ The node becomes the network when there is no network — for field setup and for recovery."
     },

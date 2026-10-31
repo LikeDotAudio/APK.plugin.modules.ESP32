@@ -2,7 +2,7 @@
   "CAN": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🚗 Differential, noise-immune, long-run control bus for industrial and vehicle installs."
     },

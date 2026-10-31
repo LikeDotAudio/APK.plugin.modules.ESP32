@@ -2,7 +2,7 @@
   "STEPPER": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🔁 Precise open-loop positioning for turntables, filter wheels, and calibrated jigs."
     },

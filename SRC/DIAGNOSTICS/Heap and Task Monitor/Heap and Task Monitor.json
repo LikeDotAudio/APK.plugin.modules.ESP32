@@ -2,7 +2,7 @@
   "Heap_and_Task_Monitor": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🧠 Free heap, largest block, and stack high-water per task — leaks show up here first."
     },

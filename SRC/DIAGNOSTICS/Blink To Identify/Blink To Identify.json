@@ -2,7 +2,7 @@
   "Blink_To_Identify": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "👁️ \"Which one of these forty is it?\" — a topic that makes exactly one node flash."
     },

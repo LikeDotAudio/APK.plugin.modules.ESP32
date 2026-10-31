@@ -2,7 +2,7 @@
   "Ethernet_W5500": {
     "type": "OcaBin",
     "schema_version": 1,
-    "status": "planned",
+    "phase": "planned",
     "description": {
       "En": "🔌 Wired transport for anything that must not depend on RF — SPI Ethernet or native EMAC."
     },
