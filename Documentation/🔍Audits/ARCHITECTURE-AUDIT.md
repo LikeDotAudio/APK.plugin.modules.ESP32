@@ -27,4 +27,4 @@ Score key: 3 meets the standard · 2 minor gaps · 1 significant gaps · 0 absen
 
 ## Findings
 1. **Good — reader-first, compiled-in data.** `build.rs` (→ `apkaudio_ocabin::build::compile_manifests`) compiles every `SRC/**/*.json` with `include_str!`; `Tree::read_one` refuses a manifest that is not one `OcaBin` named after its file, lacks `schema_version`/`phase`, has no `Identity.topic` under the contract-built root or in the contract's grammar, or a widget topic outside its module; `read()` refuses shared topics and a bad layout.
-2. **Needs owner: push and tag.** The standalone form landed (8095c65; engine members/ + `apkaudio-ocabin` [patch], engine 464b00d). DATA.NTP/PI and a standalone DATA.NETWORK clone pin `apkaudio-ocabin` at rev 194ab9d of this repo, which GitHub has only once the owner pushes; a release tag is the owner's too.
+2. **Waiting on a tag.** Pushed (35cc7e5, SDK sdk-v0.6); siblings pin `apkaudio-ocabin` at that rev and resolve it from GitHub. A release tag (`esp32-v0.2.0`) is requested from the coordinator.

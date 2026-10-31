@@ -5,6 +5,6 @@ What this repo should change to meet the standard, most valuable first. Source: 
 
 | # | Improvement | Category | Effort (S/M/L) | Evidence |
 |---|---|---|---|---|
-| 1 | Push this repository (DATA.NTP, DATA.PI and a standalone DATA.NETWORK pin `apkaudio-ocabin` at rev 194ab9d) and tag a release — needs owner. | Change management | S | `DATA.NTP/SRC/Cargo.toml`, `DATA.PI/SRC/Cargo.toml` `rev` |
+| 1 | Tag a release (`esp32-v0.2.0`: `apkaudio-plugin-modules-esp32` 0.2.0 + `apkaudio-ocabin` 0.1.0) so DATA.NETWORK/NTP/PI can pin a tag instead of a rev — TAG-REQUEST to the coordinator. | Change management | S | siblings' `rev = "35cc7e5…"` |
 
 Everything else from the audit is delivered — see [🌍Publishing/DELIVERY.md](../%F0%9F%8C%8DPublishing/DELIVERY.md).
