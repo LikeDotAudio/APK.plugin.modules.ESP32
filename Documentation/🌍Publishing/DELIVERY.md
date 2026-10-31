@@ -8,11 +8,10 @@ No image or service of its own. Because `SRC/Cargo.toml` is a member of the `DIS
 |---|---|
 | Discovery Engine | `DISCOVERY.Engine/Docker/Dockerfile` line 64 |
 | `node-baremetal:local` | `NODE.BareMetal/Docker/Dockerfile` line 92 |
-| `apkaudio-nmos-facade:local` | `PLUGIN.NMOS_CONTROL/Docker/Dockerfile.facade` line 49 |
 
 The crate compiles the JSON in and reads it (`build.rs`, `src/lib.rs`); no service in those images consumes it. The reader's check: `cd ../../DISCOVERY.Engine/SRC && cargo test -p apkaudio-plugin-modules-esp32` (every manifest + layout; `-p apkaudio-ocabin` for the shared reader's rules). `python3 .apk.scripts/smoke.py PODS/POD.THICK/DATA/DATA.ESP32` (root) checks the repo is pushed — [SMOKE.md](../%F0%9F%A7%A9Manual%20and%20Artifacts/SMOKE.md).
 
-**Not automated:** no CI runs the reader, no gate runs `cargo test` on it, no live URL. Removing the workspace membership would need the three Dockerfiles and `Cargo.toml` changed together.
+**Not automated:** no CI runs the reader, no gate runs `cargo test` on it, no live URL. Removing the workspace membership would need the two Dockerfiles and `Cargo.toml` changed together.
 
 ## Delivered from the 2026-10-30 audit
 - **Release tag `esp32-v0.2.0`** — pushed 2026-10-31 with the owner's go-ahead.
