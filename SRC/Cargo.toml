@@ -1,11 +1,9 @@
 [package]
 name = "apkaudio-plugin-modules-esp32"
 version = "0.2.0"
-edition.workspace = true
-# Still a DISCOVERY.Engine member by this key. The standalone form (no
-# workspace key, reached through the engine's SRC/members/DATA.ESP32 link) is
-# fix/P06-data-standalone.patch, applied together with the engine's half.
-workspace = "../../../DISCOVERY.Engine/SRC"
+edition = "2024"
+# Standalone (plugin_standalone.py shape): no workspace key. The DISCOVERY.Engine
+# workspace reaches it through SRC/members/DATA.ESP32.
 
 [dependencies]
 # The one OcaBin reader, shared by DATA.ESP32/NETWORK/NTP/PI; it lives here.
