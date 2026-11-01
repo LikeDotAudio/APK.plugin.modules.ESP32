@@ -24,4 +24,4 @@ serde_json = { version = "1.0", optional = true }
 # SDK by tag, like the plugins; inside the monorepo the engine workspace's
 # [patch] (or the crate's locally generated .cargo/config.toml) resolves it to
 # the local contracts/rust.
-apkaudio-contracts = { git = "https://github.com/LikeDotAudio/APK.plugin.SDK", tag = "sdk-v0.9", optional = true }
+apkaudio-contracts = { git = "https://github.com/LikeDotAudio/APK.plugin.SDK", tag = "sdk-v2.0", optional = true }
