@@ -1,6 +1,6 @@
 [package]
 name = "apkaudio-ocabin"
-version = "0.2.0"
+version = "2.0.0"
 edition = "2021"
 description = "The one reader for the DATA.* OcaBin manifest trees (ESP32, NETWORK, NTP, PI): compiles a tree in at build time and holds every manifest to one shape."
 license = "MIT"
