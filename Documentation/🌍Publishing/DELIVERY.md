@@ -28,5 +28,11 @@ The crate compiles the JSON in and reads it (`build.rs`, `src/lib.rs`); no servi
 - **SDK at `sdk-v0.7`** (3240bd1) — `SRC/ocabin` takes `apkaudio-contracts` by `tag = "sdk-v0.7"`, as do DATA.NETWORK, DATA.NTP and DATA.PI. Verified 2026-10-31: `cd PODS/POD.THICK/DISCOVERY.Engine/SRC && cargo test -p apkaudio-ocabin -p apkaudio-plugin-modules-esp32` (5 + 2 pass).
 - **Released `0.4.0` on `sdk-v0.9`, tag `esp32-v0.4.0`** (PLAN-3432.01, owner-authorised 2026-10-31) — crate 0.3.2 → 0.4.0, `apkaudio-ocabin` 0.1.1 → 0.2.0 (MINOR: its `reader` feature now links the `apkaudio-contracts` of `sdk-v0.9`), `SRC/ocabin` takes the SDK by `tag = "sdk-v0.9"`. DATA.NETWORK, DATA.NTP, DATA.PI and PLUGIN.DESKTOP_MONITOR (pi-tree, was `esp32-v0.2.0`) pin `tag = "esp32-v0.4.0"`, so their locks hold one contracts crate. Verified 2026-10-31: the tree alone (`git archive`, no `.cargo` patch) against GitHub — `cargo test` in `SRC/ocabin` 5 pass (+2 ignored doc tests), in `SRC/` 2 pass; each lock holds one `apkaudio-contracts`.
 
+## Delivered 2026-11-11 – 2026-11-12
+
+From this repository's own commits (the commit message is the record):
+
+- pin sdk-v2.4 (ROAD-3731: contracts 2.4.0 published) (`bb22622`)
+
 ## Releases
 - **Released `2.0.0`, tag `v2.0.0`** (2026-11-01, ROAD-3452, the owner's V2) — on `sdk-v2.0` (contracts 2.0.0); every manifest says 2.0.0; GitHub release `v2.0.0`.
